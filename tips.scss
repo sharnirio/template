@@ -1,0 +1,159 @@
+.class {
+    // smartgrid  mixin
+    @include row-flex();
+    // display: flex;
+    // flex-wrap: wrap;
+    // margin-left: -15px;
+    // margin-right: -15px;
+    @include wrapper();
+    // max-width: 1170px;
+    // padding-left: 15px;
+    // padding-right: 15px;
+    // margin: 0 auto;
+    @include flex-direction(column);
+    // row column row-reverse column-reverse
+    @include  flex-wrap(wrap);
+    // wrap nowrap
+    @include justify-content(center);
+    // flex-start  flex-end center space-between space-around
+    @include align-items(center);
+    //flex-start flex-end center baseline stretch
+    @include align-content(center);
+    //flex-start flex-end center space-between space-around stretch
+    @include align-self(center);
+    //flex-start flex-end center baseline stretch
+    @include col-padding();
+    // padding-left: 15px;
+    // padding-right: 15px;
+    // word-wrap: break-word;
+    @include col();
+    // box-sizing: border-box;
+    // margin-left: 15px;
+    // margin-right: 15px;
+    // word-wrap: break-word;
+    @include col-3();
+    // width: #{calc(25% - #{$offset})};
+    @include col-md-3();
+}
+//my mixin
+ @include fs(16px)
+  // font-size: 16px;
+  // font-size: 1rem;
+
+// smartgrid media
+$break_lg: 1100px;
+$break_md: 960px;
+$break_sm: 768px;
+$break_xs: 480px;
+$break_c: 320px;
+
+// my media
+
+//more_full
+$screen-more_full: 1921px;
+//full
+$screen-full: 1920px;
+//pc
+$screen-lg: 1100px;
+//tablets
+$screen-md: 960px;
+//wide_handhelds
+$screen-sm: 768px;
+//handhelds
+$screen-xs: 480px;
+//fon
+$screen-c: 320px;
+
+    //media
+@include respond-to(pc) {
+
+}
+
+@include respond-to(tablets) {
+
+}
+
+@include respond-to(wide_handhelds) {
+
+}
+
+@include respond-to(handhelds) {
+
+}
+
+@include respond-to(fon) {
+
+}
+
+
+@include respond-to(fon) {
+
+}
+
+
+@extend .class;
+
+@extend %fblack;
+// font-weight: 900
+//font-style: normal
+
+@extend %fblackit;
+    // font-weight: 900
+    // font-style: italic
+
+@extend %fbold;
+    // font-weight: 700
+    // font-style: normal
+
+@extend %fboldit;
+    // font-weight: 700
+    // font-style: italic
+
+@extend %fmedium;
+    // font-weight: 500
+    // font-style: normal
+
+@extend %fmediumit;
+    // font-weight: 500
+    // font-style: italic
+
+
+@extend %fregular;
+    // font-weight: 400
+    // font-style: normal
+
+@extend %fitalic;
+    // font-weight: 400
+    // font-style: italic
+
+@extend %flight;
+    // font-weight: 300
+    // font-style: normal
+
+@extend %flightit;
+    // font-weight: 300
+    // font-style: italic
+
+
+@include debug($background, $outline)
+    // height: 100vh;
+    // position: fixed;
+    // width: 100%;
+
+    // > div{
+    //     height: inherit;
+    //     @include wrapper();
+
+    //     > div{
+    //         height: inherit;
+    //         @include row-flex();
+
+    //         > div{
+    //             @include col();
+    //             @include col-1();
+    //             height: inherit;
+    //             outline: $outline;
+    //             background: $background;
+
+
+

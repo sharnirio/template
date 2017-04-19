@@ -1,0 +1,43 @@
+// для подключения шрифтов используеться миксин название папки и файла должно совпадать
+// и шрифты находиться в папке fonts
+//mixin font-face
+// @mixin font-face-mixin($font-family: "font-family",$file-name: "file-name", $font-weight: normal, $font-style: normal, $file-path: "fonts") {
+// font-family: "#{$font-family}";
+// src: url('../#{$file-path}/#{$file-name}/#{$file-name}.eot');
+// src: url('../#{$file-path}/#{$file-name}/#{$file-name}.eot?#iefix') format('embedded-opentype'),
+//      url('../#{$file-path}/#{$file-name}/#{$file-name}.woff2') format('woff2'), url('../#{$file-path}#{$file-name}.woff') format('woff'),
+//      url('../#{$file-path}#{$file-name}.ttf') format('truetype'), url('../#{$file-path}/#{$file-name}.svg') format('svg');
+// font-weight: $font-weight;
+// font-style: $font-style;
+// }
+// @include font-face("fon-family-name", "file-name", "file-type", "file-path");
+
+// // font-face
+// $font-reg: "Open Sans Reg";
+// $fontReg: #{$font-reg}, sans-serif;
+
+
+// @font-face {
+//     @include font-face-mixin(#{$font-reg}, "Open-Sans-regular", 400);
+// };
+
+// %fontReg {
+//   font-family: $fontReg;
+//   font-weight: 400;
+//   font-style: normal;
+// }
+
+// // @extend %fontReg;
+
+$font-reg: "gothaprobla";
+$fontReg: #{$font-reg}, sans-serif;
+
+@font-face {
+    @include font-face-mixin(#{$font-reg}, "gothaprobla");
+};
+
+%fontReg {
+  font-family: $fontReg;
+  font-weight: 400;
+  font-style: normal;
+}

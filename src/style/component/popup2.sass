@@ -1,0 +1,185 @@
+// .popup-wrp
+// 	max-width: 755px
+// 	margin: 0 auto
+// 	position: relative
+// 	padding: 40px 98px 40px
+// 	background: $color-base
+// 	.border-title
+// 		h2
+// 			margin: 0
+// 			text-align: center
+// 			text-transform: none
+// 	.wpcf7-list-item
+// 		display: block
+// 	form
+// 		#{$all-text-inputs}
+// 			height: 48px
+// 		#{$all-text-inputs}
+// 			margin-top: 5px
+// 			border: 1px solid lighten($color-default, 38.5%)
+// 			border-radius: 6px
+// 			color: $color-default
+// 			&:focus
+// 				border: 1px solid $color-brand
+// 		textarea
+// 			height: 200px
+// 		p
+// 			margin-bottom: 20px
+// 	input[type=submit]
+// 		@include button
+// 		background: $color-base
+// 		color: $color-default
+// 		margin-top: 30px
+// 		&:hover,
+// 		&:active,
+// 		&:focus
+// 			color: #cdbfe0
+// 			background: darken($color-brand, 10%)
+// 	.jq-selectbox
+// 		width: 100%
+// 		margin-top: 5px
+// 		&__dropdown
+// 			margin: 14px 0 0 0
+// 		&__select
+// 			font-size: em(17px)
+// 			box-shadow: none
+// 			border-radius: 6px
+// 			color: $color-default
+// 	.style-input
+// 		.jq-selectbox
+// 			margin: 5px 0 0
+// 			display: block
+// 			width: 100%
+// 		.wpcf7-checkbox .wpcf7-list-item
+// 			.wpcf7-list-item-label
+// 				font-size: em(17px)
+// 				a
+// 					color: $color-brand
+// 		.wpcf7-radio .wpcf7-list-item
+// 			width: 50%
+// 			float: left
+// 			display: block
+// 			margin: 10px 0 20px
+// 			.wpcf7-list-item-label
+// 				font-size: em(20px)
+// 				color: $color-default
+// 			.checked ~ .wpcf7-list-item-label
+// 				color: #000
+// 		.wpcf7-radio
+// 			width: 80%
+// 			float: left
+// .close-click,
+// .mfp-close
+// 	color: $color-brand
+// 	width: 60px
+// 	height: 60px
+// 	line-height: 60px
+// 	font-size: 60px
+// .close-click
+// 	border: none
+// 	background: transparent
+// 	position: absolute
+// 	top: 0
+// 	right: 0
+// .select-wrp
+// 	margin-bottom: 10px
+// .single-word
+// 	float: left
+// 	width: 20%
+// 	margin: 10px 0 20px
+// 	color: $color-default
+// 	font-size: em(20px)
+
+// .jq-checkbox,
+// .jq-radio
+// 	display: block
+// 	width: 18px
+// 	height: 18px
+// 	border: 1px solid lighten($color-default, 38.5%)
+// 	background: $color-base
+// 	input
+// 		width: 100%
+// 		height: 100%
+// 		top: 0
+// 		left: 0
+// 	&.focused
+// 		border: 1px solid lighten($color-default, 38.5%)
+// 	&.checked
+// 		.jq-checkbox__div
+// 			box-shadow: none
+// 			display: block
+// 			background: $color-brand
+// 		.jq-radio__div
+// 			box-shadow: none
+// 			display: block
+// 			background: $color-brand
+// .f2
+// 	.btn-default
+// 		margin-top: 28px
+
+// /* style select/input */
+// .jq-selectbox
+// 	&__dropdown
+// 		bottom: inherit !important
+// 	&__trigger
+// 		border: none
+// 		&-arrow
+// 			border: none
+// 			top: 2px
+// 			right: 22px
+// 			font-size: 20px
+// 			color: $color-brand
+// 			&::before
+// 				content: '\e809'
+// 				font-family: "e805"
+// 	&__select
+// 		background: $color-base
+// 		height: 48px
+// 		line-height: 46px
+// 		&:hover
+// 			background: $color-base
+// 	li
+// 		&:hover
+// 			background: $color-default
+// 		&.selected
+// 			background: $color-brand
+// .opened
+// 	.jq-selectbox__trigger-arrow
+// 		&::before
+// 			content: '\e80c'
+// .jq-selectbox.focused
+// 	.jq-selectbox__select
+// 		border: 1px solid $color-brand
+// .popup-wrp form #{$all-text-inputs},
+// #{$all-text-inputs},
+// textarea
+// 	width: 100%
+// 	border-radius: 3px
+// 	border: 1px solid lighten($color-default, 38.5%)
+// 	&.wpcf7-not-valid
+// 		border: 1px solid #f86b45 !important
+// 	&:focus
+// 		border: 1px solid #cdbfe0
+// #{$all-text-inputs}
+// 	padding: 0 13px
+// textarea
+// 	padding: 13px
+// 	height: 200px
+// input[type="submit"]
+// 	border: none
+// .newsletter
+// 	input[type="text"]
+// 		max-width: 366px
+// 		margin-right: 20px
+// 	input[type="submit"]
+// 		@include button
+// 	input[type="submit"],
+// 	input[type="text"]
+// 		display: inline-block
+// 		vertical-align: middle
+// span.wpcf7-not-valid-tip,
+// .wpcf7-response-output.wpcf7-display-none.wpcf7-mail-sent-ok,
+// .wpcf7-response-output.wpcf7-display-none.wpcf7-validation-errors
+// 	display: none !important
+// div.wpcf7-validation-errors
+// 	color: $color-default

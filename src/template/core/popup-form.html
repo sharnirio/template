@@ -1,0 +1,89 @@
+<div class="hidden">
+    <!-- form request -->
+    <div id="request" class="mfp-hide popup-wrp fon-base style-input">
+        <div class="f1">
+            <button class="mfp-close">×</button>
+            <h2 class="big-title">Оформить заявку</h2>
+            <form method="post" class="wpcf7-form">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <p>Ваше имя* <span class="wpcf7-form-control your-name">
+                                    <input type="text" name="your-name" value="" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required">
+                                </span> </p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <p>Ваш e-mail <span class="wpcf7-form-control your-email">
+                                    <input type="email" name="your-email" value="" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-email">
+                                </span></p>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <p>Ваш e-mail <span class="wpcf7-form-control your-email">
+                                    <input type="email" name="your-email" value="" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-email">
+                                </span></p>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <p>Ваш e-mail <span class="wpcf7-form-control your-email">
+                                    <input type="email" name="your-email" value="" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-email">
+                                </span></p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <span class="wpcf7-form-control wpcf7-checkbox clearfix">
+                                    <span class="wpcf7-list-item first">
+                                        <input type="checkbox" name="checkbox-6[]" value="check 1" />
+                                        <span class="wpcf7-list-item-label">Неактивный чекбокс</span>
+                        </span>
+                        <span class="wpcf7-list-item">
+                                        <input type="checkbox" name="checkbox-6[]" value="check 2" checked/>
+                                        <span class="wpcf7-list-item-label">Активный чекбокс</span>
+                        </span>
+                        </span>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <span class="wpcf7-form-control wpcf7-radio clearfix">
+                                    <span class="wpcf7-list-item first">
+                                        <input type="radio" name="radio-264" value="radio 1" />
+                                        <span class="wpcf7-list-item-label">Неактивный радиобаттон</span>
+                        </span>
+                        <span class="wpcf7-list-item">
+                                        <input type="radio" name="radio-264" value="radio 2" checked/>
+                                        <span class="wpcf7-list-item-label">Активный радиобаттон</span>
+                        </span>
+                        </span>
+                    </div>
+                </div>
+                <div class="row clearfix select-wrp">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <select name="your-parent" class="wpcf7-form-control wpcf7-select input-text label" aria-invalid="false">
+                            <option>List example</option>
+                            <option>Lorem ipsum dolor sit amet</option>
+                            <option>Consectetur adipisicing elit</option>
+                            <option>Tempor incididunt</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <select name="your-parent" class="wpcf7-form-control wpcf7-select input-text label" aria-invalid="false">
+                            <option>List example</option>
+                            <option>Lorem ipsum dolor sit amet</option>
+                            <option>Consectetur adipisicing elit</option>
+                            <option>Tempor incididunt</option>
+                        </select>
+                    </div>
+                </div>
+                <p class="btn-center">
+                    <input type="submit" value="Отправить сообщение" class="wpcf7-form-control wpcf7-submit btn btn-big-super">
+                </p>
+            </form>
+        </div>
+        <div class="f2 feedback" style="display:none">
+            <button class="close-click hid-popup">×</button>
+            <h2 class="big-title">Заказ оформлен</h2>
+            <p>
+                <?php echo $wpcf7_request_sent_ok_text; ?>
+            </p>
+            <p>Это окно закроется через <span class="timer_inp">10</span> <span class="timer_text">секунд</span>, но вы можете ускорить процесс, нажав на кнопку или на значок "×".</p>
+            <div class="btn-center">
+                <a href="#" class="btn btn-big-super popup-close">Закрыть окно</a>
+            </div>
+        </div>
+    </div>
+</div>
