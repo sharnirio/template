@@ -21,6 +21,9 @@
 // };
 // 5.1. используй команду gulp prod и после gulp ftp
 // 6. папка layout для макетов
+// 7. перед сдачей проекта проверить и отключить неиспользуемые плагины и библиотеки
+// как js так и scss файлы смотреть папку libs
+// 8. перед сдачей проекта отключить libs/fast-navigation.js
 // --------------------------------Task------------------------------------------
 // gulp - task to buld and watch  testing project ('build', 'webserver', 'watch')
 // gulp all - task to all build testing project ('clean', 'sprite', 'cleancache', 'build', 'watch', 'webserver')

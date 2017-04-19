@@ -1,17 +1,18 @@
 //-------===== libs
 
-//-----my reset style
-@import "_fontello";
-//-----my reset style
+//-----reset style !important
 @import "_reset";
-//-----my smart-grid
+//-----fontello style !important
+@import "_fontello";
+//-----smart-grid !important
 @import "smart-grid";
-//-----my slick
+
+//-----slick
 @import "slick";
-//-----my scroll-bar
-@import "jquery.scrollbar.scss";
+//-----scroll-bar
+@import "jquery.scrollbar";
 @import "_scroll-bar";
-//-----my magn-pop
+//-----magn-pop
 @import "_magn-pop";
-//-----my jquery formstyler
-@import "jquery.formstyler.scss";
+//-----jquery formstyler
+// @import "jquery.formstyler";
