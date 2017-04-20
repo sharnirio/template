@@ -19,7 +19,8 @@
 //     newerFolder: 'production/css/', // непрописывать папку
 //     path: '/public_html/wp-content/themes/svit-express/css/', //папка на продакшене
 // };
-// 5.1. используй команду gulp prod и после gulp ftp
+// 5.1. разкоментируй переменную const pass = require('./pass.js'); поиск - #pass
+// 5.2. используй команду gulp prod и после gulp ftp
 // 6. папка layout для макетов
 // 7. перед сдачей проекта проверить и отключить неиспользуемые плагины и библиотеки
 // как js так и scss файлы смотреть папку libs
@@ -53,8 +54,9 @@ var gulp = require('gulp'),
 
 //password for ftp
 // task for deploy on production
-const pass = require('./pass.js');
+// для деплоя разкоментируй строку ниже #pass
 
+//const pass = require('./pass.js');
 gulp.task( 'ftp', function() {
     var conn = ftp.create( {
         host:     pass.host,
