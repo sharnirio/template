@@ -58,9 +58,9 @@ $break_c: 320px;
 }
 
 @mixin wrapper(){
-    max-width: 100px;
-    padding-left: 15;
-    padding-right: 15;
+    max-width: 1200px;
+    padding-left: 15px;
+    padding-right: 15px;
     margin: 0 auto;
 
     @media screen and (max-width: $break_lg){

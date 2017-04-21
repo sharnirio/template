@@ -4,6 +4,7 @@ node_modules/
 build/
 production/
 layout/
+source/
 !src/template/layout/
 *.rar
 **/**/*.rar

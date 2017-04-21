@@ -6,11 +6,7 @@
 @import "_mixin";
 
 //-----my fonts
-@import "_font_yulia";
 @import "_fonts";
-
-//-----my base
-@import "_base";
 
 // for sprite
 @import "_sprite";
@@ -21,16 +17,9 @@
 //-----my typography
 @import "_typography";
 
-//-----my popup
-@import "popup2";
-@import "_popup";
 
 // for basic styles
 
 @import "_other-style";
-
-@import "_js-style";
-
-@import "_setting-grid";
 
 @import "_wordpress.scss";

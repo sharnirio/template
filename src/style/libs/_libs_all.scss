@@ -2,17 +2,31 @@
 
 //-----reset style !important
 @import "_reset";
+
 //-----fontello style !important
 @import "_fontello";
+
 //-----smart-grid !important
 @import "smart-grid";
 
-//-----slick
+//-----карусель slick
 @import "slick";
+
 //-----scroll-bar
 @import "jquery.scrollbar";
+//-----scroll-bar my stile
 @import "_scroll-bar";
+
 //-----magn-pop
 @import "_magn-pop";
+//-----magn-pop my stile
+@import "popup2";
+@import "_popup";
+
+//-----my popup
+// стили для редкоисользуевых плагинов
 //-----jquery formstyler
 // @import "jquery.formstyler";
+
+//-----сетка для Юли
+// @import "_setting-grid";

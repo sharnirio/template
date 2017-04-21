@@ -20,7 +20,8 @@ module.exports = {
 };
 5.1. используй команду gulp prod и после gulp ftp
 6. папка layout для макетов
---------------------------------Task------------------------------------------
+
+---Task---
 gulp - task to buld and watch  testing project ('build', 'webserver', 'watch')
 gulp all - task to all build testing project ('clean', 'sprite', 'cleancache', 'build', 'watch', 'webserver')
 gulp allProd - task to all production project ('cleanProd', 'spriteProd', 'cleancacheProd', 'buildProd', 'watchProd', 'webserverProd')

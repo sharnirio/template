@@ -1,18 +1,25 @@
 // fonts
-$body: 100%;
-$h1: 3rem; //48px
-$h2: 2.25rem; //36px
-$div: 1.5rem; //24px
-$p: 1.125rem; //18px
-$s: 0.875rem; //14px
-// media
-$screen-c: 320px;
-$screen-xs: 480px;
-$screen-sm: 768px;
-$screen-md: 960px;
-$screen-lg: 1100px;
-$screen-full: 1920px;
+$html_font: 100%;
+// $h1: 3rem; //48px
+// $h2: 2.25rem; //36px
+// $div: 1.5rem; //24px
+// $p: 1.125rem; //18px
+// $s: 0.875rem; //14px
+
+//more_full
 $screen-more_full: 1921px;
+//full
+$screen-full: 1920px;
+//pc
+$screen-lg: 1100px;
+//tablets
+$screen-md: 960px;
+//wide_handhelds
+$screen-sm: 768px;
+//handhelds
+$screen-xs: 480px;
+//fon
+$screen-c: 320px;
 
 
 
@@ -25,6 +32,7 @@ $spacing-fourth:  $spacing * 4;
 $spacing-half:    $spacing / 2;
 
 //-----------------------------------color
+$fon-brand:            #c1c;
 $color-base:            #fff;
 $color-base-med:        #f6f6f6;
 $color-default:         #212121;

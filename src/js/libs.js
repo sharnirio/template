@@ -20,6 +20,7 @@
 // !important
 //= libs/jquery.matchHeight.js
 
+// подключить нижние плагины при необходимости
 // libs/jquery-ui.js
 
 // libs/inline-spoilers-scripts.js

@@ -1,3 +1,7 @@
+// Для того чтобы писать алиасы и функции для автоматизации нам нужно создать
+// файл .bashrc по адресу C:/Users/ИМЯ_ПОЛЬЗОВАТЕЛЯ/.bashrc
+//  ---- alias для создания файла и структуры через консоль находясь в папке с проэктом используй команду
+//  new-s filename
 .class {
     // smartgrid  mixin
     @include row-flex();
@@ -22,14 +26,14 @@
     //flex-start flex-end center space-between space-around stretch
     @include align-self(center);
     //flex-start flex-end center baseline stretch
-    @include col-padding();
-    // padding-left: 15px;
-    // padding-right: 15px;
-    // word-wrap: break-word;
     @include col();
     // box-sizing: border-box;
     // margin-left: 15px;
     // margin-right: 15px;
+    // word-wrap: break-word;
+    @include col-padding();
+    // padding-left: 15px;
+    // padding-right: 15px;
     // word-wrap: break-word;
     @include col-3();
     // width: #{calc(25% - #{$offset})};

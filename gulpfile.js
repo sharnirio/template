@@ -1,16 +1,15 @@
 'use strict';
 // запуск и использование проекта
 // #home
-// 0. сменить рабочую папку в переменной path.Project.pathProject для
-// файла smart-grid.scss настроить сетку под себя можно в самом конце
-// что бы бысто попасть используй поиск #smart
-// 0.1. добавить свои файлы шрифтов фонтело в /fonts/fontello/ вместе со стилями и переименовать fontello-codes.css  в fontello-codes.scss
+// 0. если необходима особая сетка, сменить рабочую папку в переменной path.Project.pathProject для файла smart-grid.scss!
+// 0.1.настроить сетку под себя можно в самом конце!что бы бысто попасть используй поиск #smart
+// 0.2. добавить свои файлы шрифтов фонтело в /fonts/fontello/ вместе со стилями и переименовать fontello-codes.css  в fontello-codes.scss
 // если что то не выходит проверить пути к шрифту в файле \src\style\libs\_fontello.scss
 // 1. npm i
-// 2. gulp smartgrid
+// 2. если необходима сетка не по умолчанию обратись к пункту 0.1 и используй команду gulp smartgrid
 // 3. gulp all
 // 4. в дальнейшем запуск проекта возможен по команде - gulp
-// 5. для деплоя создай файл с переменными pass.js вида
+// 5. (если не используеш автоматизированое разворачивание)для деплоя создай файл с переменными pass.js вида
 // module.exports = {
 //     host: '91.236.118.160',
 //     login: 'login',
@@ -19,9 +18,8 @@
 //     newerFolder: 'production/css/', // непрописывать папку
 //     path: '/public_html/wp-content/themes/svit-express/css/', //папка на продакшене
 // };
-// 5.1. разкоментируй переменную const pass = require('./pass.js'); поиск - #pass
-// 5.2. используй команду gulp prod и после gulp ftp
-// 6. папка layout для макетов
+// 5.1. используй команду gulp prod и после gulp ftp
+// 6. папка source для исходников(макеты, шрифты)
 // 7. перед сдачей проекта проверить и отключить неиспользуемые плагины и библиотеки
 // как js так и scss файлы смотреть папку libs
 // 8. перед сдачей проекта отключить libs/fast-navigation.js
@@ -52,11 +50,10 @@ var gulp = require('gulp'),
     smartgrid = require('smart-grid'),
     reload = browserSync.reload;
 
-//password for ftp
-// task for deploy on production
-// для деплоя разкоментируй строку ниже #pass
 
-//const pass = require('./pass.js');
+// task for deploy on production
+// незабудь заменить данные для входа в файле pass.js
+const pass = require('./pass.js');
 gulp.task( 'ftp', function() {
     var conn = ftp.create( {
         host:     pass.host,
@@ -76,7 +73,7 @@ gulp.task( 'ftp', function() {
 
 var path = {
     Project: {
-        pathProject: '/home-project/template-2.0/'
+        pathProject: '/home-project/template/'
     },
     build: {
         html: 'build/',
@@ -365,7 +362,7 @@ gulp.task('jsLibs:buildProd', function() {
         .pipe(sourcemaps.init())
         .pipe(rigger())
         // #todo глючит js из за минификации
-        // .pipe(uglify())
+        .pipe(uglify())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.production.js))
         .pipe(reload({ stream: true }));
@@ -427,8 +424,8 @@ var settings = {
     columns: 12, /* number of grid columns */
     offset: "30px", /* gutter width px || % */
     container: {
-        maxWidth: '100px', /* max-width оn very large screen */
-        fields: '15' /* side fields */
+        maxWidth: '1200px', /* max-width оn very large screen */
+        fields: '15px' /* side fields */
     },
     breakPoints: {
         lg: {
