@@ -193,7 +193,9 @@ gulp.task('jsMap:build', function() {
 gulp.task('jsLibs:build', function() {
     gulp.src(path.src.jsLibs)
         .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
+        .pipe(sourcemaps.init())
         .pipe(rigger())
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.js))
         .pipe(reload({ stream: true }));
 });

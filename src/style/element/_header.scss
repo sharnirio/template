@@ -1,0 +1,8 @@
+// #header
+.header {
+	&_wraper {
+	@include col-12();
+	background-color: #000;
+	@include col-padding();
+}
+}

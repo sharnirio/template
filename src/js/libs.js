@@ -20,10 +20,13 @@
 // !important
 //= libs/jquery.matchHeight.js
 
+// !important
+//= libs/jquery.formstyler.js
+
 // подключить нижние плагины при необходимости
 // libs/jquery-ui.js
 
 // libs/inline-spoilers-scripts.js
 
-// libs/jquery.formstyler.js
+
 

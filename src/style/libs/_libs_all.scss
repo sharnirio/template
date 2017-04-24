@@ -1,6 +1,10 @@
 //-------===== libs
 
 //-----reset style !important
+@import "../component/_variable";
+@import "../component/_mixin";
+
+//-----reset style !important
 @import "_reset";
 
 //-----fontello style !important
@@ -17,16 +21,18 @@
 //-----scroll-bar my stile
 @import "_scroll-bar";
 
+//-----jquery formstyler
+@import "jquery.formstyler";
+
 //-----magn-pop
 @import "_magn-pop";
 //-----magn-pop my stile
-@import "popup2";
 @import "_popup";
 
-//-----my popup
-// стили для редкоисользуевых плагинов
-//-----jquery formstyler
-// @import "jquery.formstyler";
-
 //-----сетка для Юли
-// @import "_setting-grid";
+@import "_setting-grid";
+
+// стили для редкоисользуевых плагинов
+
+
+
