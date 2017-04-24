@@ -2,11 +2,17 @@
 .container {
     @include wrapper();
     min-width: 250px;
-    background:#fff;
+    background: #fff;
 }
+
 .fon-brand {
     background: $fon-brand;
 }
+
+.color-brand {
+    color: $color-brand;
+}
+
 // #html font-size
 html {
     font-size: $html_font;
@@ -34,111 +40,139 @@ html {
         font-size: $html_font - 25%;
     }
 }
+
 // #h1 stile h1-h6 for sub-page
 .sub-page {
     h1 {
-        color: #212121;
         @include fs(30px);
-        // @extend %fmedium;
     }
     h2 {
-        color: #212121;
         @include fs(24px);
-        // @extend %fmedium;
     }
     h3 {
-        color: #212121;
         @include fs(21px);
-        // @extend %fmedium;
     }
     h4 {
-        color: #212121;
         @include fs(18px);
-        // @extend %fmedium;
     }
     h5 {
-        color: #212121;
         @include fs(15px);
-        // @extend %fmedium;
     }
     h6 {
-        color: #212121;
         @include fs(15px);
+    }
+    h1,
+    h2,
+    h3,
+    h4 {
+        text-align: center;
+        text-transform: uppercase;
+        color: #212121;
+        margin: 35px 0;
         // @extend %fmedium;
+    }
+    h5,
+    h6 {
+        text-align: left;
+        margin: 25px 0;
+        color: #212121;
     }
 }
 
 // #h1 stile h1-h6 for main-page
 .main-page {
     h1 {
-        color: #212121;
         @include fs(30px);
-        // @extend %fmedium;
     }
     h2 {
-        color: #212121;
         @include fs(24px);
-        // @extend %fmedium;
     }
     h3 {
-        color: #212121;
         @include fs(21px);
-        // @extend %fmedium;
     }
     h4 {
-        color: #212121;
         @include fs(18px);
-        // @extend %fmedium;
     }
     h5 {
-        color: #212121;
         @include fs(15px);
-        // @extend %fmedium;
     }
     h6 {
-        color: #212121;
         @include fs(15px);
+    }
+    h1,
+    h2,
+    h3,
+    h4 {
+        text-align: center;
+        text-transform: uppercase;
+        color: #212121;
+        margin: 35px 0;
         // @extend %fmedium;
+    }
+    h5,
+    h6 {
+        text-align: left;
+        margin: 25px 0;
     }
 }
 
 blockquote {
-	color: #212121;
+    color: #212121;
     @include fs(15px);
+    position: relative;
+    background: #edeaf2;
+    line-height: 24px;
+    margin: 30px 0;
+    border-left: 3px solid $color-brand;
+    padding: 30px 20px 20px 30px;
+    font-style: italic;
+    // @extend %kirr;
 }
+
 p {
-	color: #212121;
+    color: #212121;
     @include fs(15px);
 }
+
+.text-style p,
+.text-style li {
+    margin: 0 0 15px;
+}
+
 // #strong
 b,
 strong {
     // @extend %fmedium;
     color: #212121;
 }
+
 // #a
 a {
-	text-decoration: none;
+    text-decoration: none;
     transition: all .4s cubic-bezier(.25, .46, .45, .94);
     &:focus {
         outline: none;
     }
     &:hover {
-        text-decoration: none;
+        text-decoration: underline;
+    }
+    .current-menu-item & {
+        text-decoration: underline;
     }
 }
+
 // #img
 img {
     max-width: 100%;
     align-self: center;
 }
 
-
 // style #input #textarea
 // убирает иконку в поле типа поиска
 input[type="search"]::-webkit-search-cancel-button {
     -webkit-appearance: none;
 }
+
 // плавное изменение прозрачности  placeholder-а при фокусе для textarea и input
 textarea::-webkit-input-placeholder,
 input::-webkit-input-placeholder {
@@ -207,21 +241,23 @@ textarea {
     max-width: 100%;
 }
 
-
 // Стиль placeholder-a
 textarea::-webkit-input-placeholder,
 input::-webkit-input-placeholder {
     color: #1e2a32 !important;
 }
+
 textarea::-webkit-input-placeholder,
 input::-moz-placeholder {
     color: #1e2a32 !important;
 }
+
 // /* Firefox 19+ */
 textarea::-webkit-input-placeholder,
 input:-moz-placeholder {
     color: #1e2a32 !important;
 }
+
 // /* Firefox 18- */
 textarea::-webkit-input-placeholder,
 input:-ms-input-placeholder {
@@ -229,6 +265,209 @@ input:-ms-input-placeholder {
 }
 
 // style #ol #ul #li
+.text-style ol,
+.text-style ul {
+    font-size: 16px;
+    color: #6a6a6a;
+    padding-left: 23px;
+    @include respond-to(wide_handhelds) {
+        padding-left: 15px;
+    }
+    @include respond-to(handhelds) {
+        padding-left: 5px;
+    }
+    @include respond-to(fon) {
+        padding-left: 0px;
+    }
+}
+
+.text-style ol li,
+.text-style ul li {
+    margin-bottom: 22px;
+    position: relative;
+    overflow: hidden;
+    padding-left: 32px;
+    @include respond-to(wide_handhelds) {
+        padding-left: 25px;
+    }
+    @include respond-to(handhelds) {
+        padding-left: 20px;
+        margin-bottom: 15px;
+    }
+    @include respond-to(fon) {
+        padding-left: 15px;
+        margin-bottom: 10px;
+    }
+}
+
+.text-style ol li:before,
+.text-style ul li:before {
+    @extend .icon-ok-circled2;
+    @extend [class^="icon-"]:before;
+    @extend .color-brand;
+    position: absolute;
+    top: 0;
+    left: -4px;
+}
+.text-style ol {
+    counter-reset: li;
+}
+
+.text-style ol li:before {
+    content: counter(li) '.';
+    counter-increment: li;
+    font-size: 14px;
+    // @extend %fontBold;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    margin-bottom: 15px;
+    tr:nth-of-type(2n+3) {
+        background-color: rgba(245, 244, 240, 0.5);
+    }
+    tr:last-child {
+        border-bottom: 1px solid #1e2a32;
+    }
+}
+
+table td {
+    padding: 25px;
+    color: #6a6a6a;
+    font-size: 16px;
+    @include respond-to(wide_handhelds) {
+        padding: 15px;
+    }
+    @include respond-to(handhelds) {
+        padding: 5px;
+    }
+    @include respond-to(fon) {
+        padding: 2px;
+    }
+}
+
+table th {
+    // @extend %fontBold;
+    @include fs(18px);
+    padding: 25px;
+    color: #1e2a32;
+    background-color: $fon-brand;
+    text-align: left;
+    border-bottom: 2px solid #983350;
+    @include respond-to(wide_handhelds) {
+        padding: 15px;
+    }
+    @include respond-to(handhelds) {
+        padding: 5px;
+    }
+    @include respond-to(fon) {
+        padding: 2px;
+    }
+}
+
+.main-page .interesting-text ol,
+.main-page .interesting-text ul,
+.text-style ol,
+.text-style ul {
+    font-size: 16px;
+    color: #6a6a6a;
+    padding-left: 23px;
+    @include respond-to(wide_handhelds) {
+        padding-left: 15px;
+    }
+    @include respond-to(handhelds) {
+        padding-left: 5px;
+    }
+    @include respond-to(fon) {
+        padding-left: 0px;
+    }
+}
+
+.text-style ol li,
+.text-style ul li {
+    margin-bottom: 22px;
+    position: relative;
+    overflow: hidden;
+    padding-left: 32px;
+    @include respond-to(wide_handhelds) {
+        padding-left: 25px;
+    }
+    @include respond-to(handhelds) {
+        padding-left: 20px;
+        margin-bottom: 15px;
+    }
+    @include respond-to(fon) {
+        padding-left: 15px;
+        margin-bottom: 10px;
+    }
+}
+
+.main-page .interesting-text ol li:before,
+.main-page .interesting-text ul li:before,
+.sub-page .interesting-text ol li:before,
+.sub-page .interesting-text ul li:before {
+    @extend .icon-ok-circled2;
+    @extend [class^="icon-"]:before;
+    @extend .color-brand;
+    position: absolute;
+    top: 0;
+    left: -4px;
+}
+
+.main-page .interesting-text ol,
+.sub-page .interesting-text ol {
+    counter-reset: li;
+}
+
+.main-page .interesting-text ol li:before,
+.sub-page .interesting-text ol li:before {
+    content: counter(li) '.';
+    counter-increment: li;
+    font-size: 14px;
+    // @extend %fontBold;
+}
+
+.main-page .interesting-text ol li,
+.main-page .interesting-text ul li,
+.sub-page .interesting-text ol,
+.sub-page .interesting-text ul {
+    font-size: 16px;
+    color: #6a6a6a;
+    padding-left: 23px;
+    @include respond-to(wide_handhelds) {
+        padding-left: 15px;
+    }
+    @include respond-to(handhelds) {
+        padding-left: 5px;
+    }
+    @include respond-to(fon) {
+        padding-left: 0px;
+    }
+}
+
+.main-page .interesting-text ol li,
+.main-page .interesting-text ul li,
+.sub-page .interesting-text ol li,
+.sub-page .interesting-text ul li {
+    margin-bottom: 22px;
+    position: relative;
+    overflow: hidden;
+    padding-left: 32px;
+    @include respond-to(wide_handhelds) {
+        padding-left: 25px;
+    }
+    @include respond-to(handhelds) {
+        padding-left: 20px;
+        margin-bottom: 15px;
+    }
+    @include respond-to(fon) {
+        padding-left: 15px;
+        margin-bottom: 10px;
+    }
+}
+
 .extension {
     ol {
         counter-reset: section;
@@ -241,7 +480,21 @@ input:-ms-input-placeholder {
     }
 }
 
+.switch-links {
+    padding: 45px 0;
+    .container {
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+    a {
+        @extend .color-brand;
+        font-size: 16px;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
 
 body {
-	background: #ccc;
+    background: #ccc;
 }

@@ -1,0 +1,30 @@
+.main-container {
+    display: flex;
+    flex-wrap: wrap;
+    img {
+        height: auto;
+    }
+    .main-contant {
+        @include col-12();
+        @include col-padding();
+        background-color: #fff;
+    }
+    .block-info {
+        background-color: rgba(242, 243, 243, 0.7);
+        margin-left: -15px;
+        margin-right: -15px;
+        padding: 15px 20px;
+        color: #9c9c9c;
+        font-size: 13px;
+        .block-info_who {
+            float: right;
+        }
+        .block-info_when {
+            margin-right: 20px;
+        }
+        [class^="icon-"]:before,
+        [class*=" icon-"]:before {
+            margin-right: 10px;
+        }
+    }
+}

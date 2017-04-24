@@ -22,104 +22,54 @@ jQuery(document).ready(function($) {
     'use strict';
 // ------------------My js-------------------------
 
-    // // sript for toggle Number
-    // function toggleNumber() {
-    //     var trigger = '.panelBtn',
-    //         menuToggle = '.panelToggle',
-    //         wrapParent = '.panelWrapper';
+    // sript for burger header
+    function headerBurger() {
+        var menu = $(".header .burger__button");
+        var head = $(".header");
+        menu.on("click", function() {
+            event.preventDefault();
+            if (head.hasClass("js-open")) {
+                head.removeClass('js-open');
+            } else head.addClass('js-open');
+        });
+    }
+    headerBurger()
 
-    //     function navigationMenu(event) {
-    //         var $_menuItem = $(event.target).parents(wrapParent),
-    //             $_panel = $_menuItem.find(menuToggle);
+    // sript for burger footer
+    function footerBurger() {
+        var menu = $(".footer .burger__button");
+        var head = $(".footer");
+        menu.on("click", function() {
+            event.preventDefault();
+            if (head.hasClass("js-open")) {
+                head.removeClass('js-open');
+            } else head.addClass('js-open');
+        });
+    }
+    footerBurger()
 
+    // sript for seach
+    function seachFade() {
+        var searcHeader = $(".header .btn-search");
+        var searcInHeader = $(".header .search-in");
+        searcHeader.click(function(e) {
+            $(this).toggleClass("on");
+            if (searcInHeader.css('display') == 'none') {
+                searcInHeader.fadeIn(200);
+            } else {
+                searcInHeader.fadeOut(200);
+            }
+            e.preventDefault();
+        });
+    } seachFade();
 
-    //         if ($_menuItem.data('collapsed')) {
-    //             $_menuItem.data('collapsed', false).removeClass('is-open').addClass('is-closed');
-    //             $_panel.slideUp();
-    //         } else {
-    //             $_menuItem.data('collapsed', true).removeClass('is-closed').addClass('is-open');
-    //             $_panel.slideDown();
-    //         }
-    //     }
-    //     $(trigger).on('click', function(event) {
-    //         navigationMenu(event);
-    //     });
-    // }
-    // toggleNumber();
-
-    // // sript for seach
-    // function seachFade() {
-    //     var searcHeader = $(".header .btn-search");
-    //     var searcInHeader = $(".header .search-in");
-    //     searcHeader.click(function(e) {
-    //         $(this).toggleClass("on");
-    //         if (searcInHeader.css('display') == 'none') {
-    //             searcInHeader.fadeIn(200);
-    //         } else {
-    //             searcInHeader.fadeOut(200);
-    //         }
-    //         e.preventDefault();
-    //     });
-    // }
-    // seachFade();
-
-    // // sript for burger header
-    // function headerBurger() {
-    //     var menu = $(".header .nav-toggle_burger, .header .cancel-panel");
-    //     var head = $(".header");
-    //     menu.on("click", function() {
-    //         if (head.hasClass("js-open")) {
-    //             head.removeClass('js-open');
-    //         } else head.addClass('js-open');
-    //     });
-    // }
-    // headerBurger()
-
-    // // sript for burger footer
-    // function footerBurger() {
-    //     var menu = $(".footer .nav-toggle_burger, .footer .cancel-panel");
-    //     var head = $(".footer");
-    //     menu.on("click", function() {
-    //         if (head.hasClass("js-open")) {
-    //             head.removeClass('js-open');
-    //         } else head.addClass('js-open');
-    //     });
-    // }
-    // footerBurger()
-
-    // // sript for burger site bar
-    // function siteBarBurger() {
-    //     var menu = $(".site-bar .site-bar_mobile-menu__wraper");
-    //     var head = $(".site-bar");
-    //     menu.on("click", function() {
-    //         if (head.hasClass("js-open")) {
-    //             head.removeClass('js-open');
-    //         } else head.addClass('js-open');
-    //     });
-    // }
-    // siteBarBurger()
-
-
-
-// ------------------My js END-------------------------
-
-    // ---------------Globals js yulia---------------
-    var $_win = $(window),
-        $_html = $('html'),
-        $_body = $('body'),
-
-        //Breakpoint
-        mobileBreakpoint = 480,
-        tabletBreakpoint = 767,
-        laptopBreakpoint = 992;
-
-/* Popup
+    /* Popup
 * Website: http://dimsemenov.com/plugins/magnific-popup/
     ==========================================================================
 */
     function funcPopup() {
         // Image popups
-        $('.gallery').magnificPopup({
+        $('.js-gallery').magnificPopup({
             delegate: 'a',
             type: 'image',
             removalDelay: 500,
@@ -185,8 +135,7 @@ jQuery(document).ready(function($) {
             remove: false
         });
     };
-
-    /* Scrollbar
+       /* Scrollbar
     * Website: http://brm.io/jquery-match-height/
     ==========================================================================
     */
@@ -195,12 +144,45 @@ jQuery(document).ready(function($) {
     }
     myScrollbar();
 
-     /* style inpyt
+    /* style inpyt
     * Website: http://dimox.name/jquery-form-styler
     ==========================================================================
     */
 
     $('.style-input input, .style-input select').styler();
+
+     /* function ajaxStop
+        ==========================================================================
+    */
+
+    $(document).ajaxStop(function() {
+        funcPopup();
+        funcMatchHeight();
+        //sliderInit();
+    });
+
+
+
+
+
+// ------------------My js END-------------------------
+
+    // ---------------Globals js yulia---------------
+    var $_win = $(window),
+        $_html = $('html'),
+        $_body = $('body'),
+
+        //Breakpoint
+        mobileBreakpoint = 480,
+        tabletBreakpoint = 767,
+        laptopBreakpoint = 992;
+
+
+
+
+
+
+
 
     /*
         @returns {*} window width
@@ -303,15 +285,6 @@ jQuery(document).ready(function($) {
 
 
 
-     /* function ajaxStop
-        ==========================================================================
-    */
-
-    $(document).ajaxStop(function() {
-        funcPopup();
-        funcMatchHeight();
-        //sliderInit();
-    });
 
     /* function resize
         ==========================================================================

@@ -107,7 +107,8 @@ var path = {
     },
     watch: {
         html: 'src/**/*.html',
-        js: 'src/js/**/*.js',
+        js: 'src/js/component/**/*.js',
+        jsLibs: 'src/js/libs/**/*.js',
         style: 'src/style/**/*.+(scss|sass)',
         img: 'src/img/**/*.+(jpg|JPG|jpeg|png|svg|gif|ico)',
         fonts: 'src/fonts/**/*.+(eot|woff2|woff|ttf|svg)',
@@ -273,6 +274,9 @@ gulp.task('watch', function () {
     });
     gulp.watch([path.watch.js], ['js:build']).on('change', function () {
         notify("JS file was changed!").write('');
+    });
+    gulp.watch([path.watch.jsLibs], ['jsLibs:build']).on('change', function () {
+        notify("JS-LIBS file was changed!").write('');
     });
     gulp.watch([path.watch.fonts], ['fonts:build']).on('change', function () {
         notify("FONTS file was changed!").write('');

@@ -62,7 +62,7 @@
 }
 .scrollbar_inner > .scroll-element .scroll-bar {
   cursor: pointer;
-  background-color: #53337e;
+  background-color: $color-brand;
 }
 .scrollbar_inner > .scroll-element:hover .scroll-bar {
   background-color: #53337e;
