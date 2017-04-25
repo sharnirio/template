@@ -6,7 +6,7 @@
     }
     .main-contant {
         @include col-12();
-        @include col-padding();
+        width: 100%;
         background-color: #fff;
     }
     .block-info {

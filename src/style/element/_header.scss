@@ -1,8 +1,7 @@
 // #header
 .header {
     &_wraper {
-        @include col-12();
-        @include col-padding();
+        width: 100%;
         position: relative;
         min-height: 30px;
         padding-top: 20px;
@@ -12,9 +11,6 @@
         background-color: #000;
     }
     // #header_nav
-    .main-header_nav {
-        li {}
-    }
     .main-header_nav a {
         color: #fff;
         @include fs(16px);
@@ -31,44 +27,12 @@
         @include col-padding();
         flex-wrap: nowrap;
     }
-    .nav-toggle_burger {
-        // display: none;
-    }
-    //burger
-    .nav-toggle {
-        position: relative;
-    }
-    .nav-toggle_burger {
-        z-index: 99;
-        color: #fff;
-        border: none;
-        background: 0 0;
-        width: 20px;
-        height: 18px;
-        padding: 0;
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: stretch;
-        display: flex;
-        span {
-            border-radius: 3px;
-            display: block;
-            width: 20px;
-            height: 4px;
-            background: #ffffff;
-        }
-    }
     //media
     @include respond-to(pc) {}
     @include respond-to(tablets) {}
     @include respond-to(wide_handhelds) {
         .main-header_ul {
-            display: none;
-            @include justify-content(center);
-            @include col-12();
+            display: block;
             li {
                 text-align: center;
             }
@@ -81,17 +45,48 @@
             display: none;
         }
         .burger__button {
-        	display: block;
+            display: block;
+        }
+        .main-header_nav {
+            display: none;
         }
     }
     @include respond-to(handhelds) {}
     @include respond-to(fon) {}
 }
 
+//#burger
+.nav-toggle {
+    position: relative;
+}
+
+.nav-toggle_burger {
+    z-index: 99;
+    color: #fff;
+    border: none;
+    background: 0 0;
+    width: 20px;
+    height: 18px;
+    padding: 0;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    display: flex;
+    span {
+        border-radius: 3px;
+        display: block;
+        width: 20px;
+        height: 4px;
+        background: #ffffff;
+    }
+}
+
 .burger__button {
     position: absolute;
-    top: 0px;
-    left: 0px;
+
     display: none;
     width: 25px;
     height: 25px;
@@ -101,6 +96,10 @@
     border-radius: 9%;
     background: transparent;
     box-shadow: 0 0 8px -2px #333;
+    .header & {
+     top: 20px;
+    left: 0px;
+    }
 }
 
 .burger__button__icon {
@@ -110,6 +109,7 @@
     height: 6px;
     transform: translateY(-1px);
 }
+
 .burger__button__icon,
 .burger__button__icon:after,
 .burger__button__icon:before {
@@ -123,24 +123,25 @@
     right: 0;
     border-radius: 13px;
 }
+
 .burger__button__icon:after,
 .burger__button__icon:before {
     content: "";
 }
-// .burger__button {
-//     vertical-align: middle;
-// }
 
 .burger__button__icon:before {
     bottom: 8px;
 }
+
 .burger__button__icon:after {
     top: 8px;
 }
-//open
+
+//js-open
 .js-open .burger__button__icon {
     background: 0 0;
 }
+
 .js-open .burger__button__icon:after,
 .js-open .burger__button__icon:before {
     left: 4px;
@@ -149,32 +150,28 @@
     -ms-transform-origin: 0 50%;
     transform-origin: 0 50%;
 }
+
 .js-open .burger__button__icon:before {
-        transform: rotateZ(0.89474rad);
+    transform: rotateZ(0.89474rad);
 }
 
 .js-open .burger__button__icon:after {
-        transform: rotateZ(-0.89474rad);
-}
-// js-open media wide_handhelds
-@include respond-to(wide_handhelds) {
- .js-open {
-        	.main-header_ul {
-        		display: block;
-        	}
-        }
+    transform: rotateZ(-0.89474rad);
 }
 
 // search
-.header {
-	.seach {
+.seach {
     position: absolute;
-    top: 15px;
-    right: 0px;
+
     color: #fff;
     font-size: 20px;
     font-size: 1.25rem;
+    .header & {
+    top: 20px;
+    right: 0px;
+    }
 }
+
 .seach .btn-search {
     cursor: pointer;
     position: absolute;
@@ -182,16 +179,19 @@
     top: 7px;
     right: 5px;
 }
+
 .seach .icon-search {
     font-size: 20px;
     font-size: 1.25rem;
 }
+
 .seach .search-in {
     display: none;
     position: absolute;
     right: 0;
     top: -6px;
 }
+
 .seach .input {
     padding: 10px 0 10px 10px;
     -webkit-border-radius: 5px;
@@ -203,6 +203,7 @@
     font-size: 16px;
     width: 279px;
 }
+
 .search-in .submit {
     position: absolute;
     font-size: 0;
@@ -215,7 +216,9 @@
     right: 0;
     display: none;
 }
+
 .seach .icon-search.on {
     color: #983350;
 }
-}
+
+// #new style

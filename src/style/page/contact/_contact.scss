@@ -1,0 +1,39 @@
+// contact
+.contact {
+    padding: 10px 0;
+    .contact_wraper {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .contact-block_wraper {
+        @include col-5();
+        @include col-padding();
+    }
+    //#map
+    .map-contact {
+        @include col-7();
+        @include col-padding();
+        height: 400px;
+    }
+    .contact-block_icon {
+        p {
+            color: #1e2a32;
+            font-size: 18px;
+            position: relative;
+            padding-left: 30px;
+        }
+        p[class*=" icon-"]:before,
+        p[class^=icon-]:before {
+            margin-right: 20px;
+           color: $color-brand;
+            position: absolute;
+            top: 50%;
+            margin: -9px 0;
+            left: 0;
+        }
+        [class*=" icon-"]:before,
+        [class^=icon-]:before {
+           color: $color-brand;
+        }
+    }
+}

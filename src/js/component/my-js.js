@@ -1,4 +1,5 @@
 ;
+
 function startTimer(duration, display, display_text) {
     var timer = duration,
         seconds;
@@ -20,33 +21,7 @@ function startTimer(duration, display, display_text) {
 
 jQuery(document).ready(function($) {
     'use strict';
-// ------------------My js-------------------------
-
-    // sript for burger header
-    function headerBurger() {
-        var menu = $(".header .burger__button");
-        var head = $(".header");
-        menu.on("click", function() {
-            event.preventDefault();
-            if (head.hasClass("js-open")) {
-                head.removeClass('js-open');
-            } else head.addClass('js-open');
-        });
-    }
-    headerBurger()
-
-    // sript for burger footer
-    function footerBurger() {
-        var menu = $(".footer .burger__button");
-        var head = $(".footer");
-        menu.on("click", function() {
-            event.preventDefault();
-            if (head.hasClass("js-open")) {
-                head.removeClass('js-open');
-            } else head.addClass('js-open');
-        });
-    }
-    footerBurger()
+    // ------------------My js-------------------------
 
     // sript for seach
     function seachFade() {
@@ -61,9 +36,46 @@ jQuery(document).ready(function($) {
             }
             e.preventDefault();
         });
-    } seachFade();
+    }
+    seachFade();
 
-    /* Popup
+    // menu and other
+    function menu(event) {
+
+        var trigger = '.panelBtn',
+            menuToggle = '.panelToggle',
+            wrapParent = '.panelWrapper',
+            $_menuItem = $(event.target).parent(wrapParent),
+            $_panel = $_menuItem.find(menuToggle);
+
+
+        if ($_menuItem.data('collapsed')) {
+            $_menuItem.data('collapsed', false).removeClass('js-open').addClass('js-closed');
+            $_panel.slideUp();
+        } else {
+            $_menuItem.data('collapsed', true).removeClass('js-closed').addClass('js-open');
+            $_panel.slideDown();
+        }
+    }
+
+    function resizeMenu() {
+        var $_auxiliaryWrp = $('.resizeWrp'),
+            $_auxiliaryPanel = $('.resizePanel');
+        if ($(window).width() >= 768) {
+            //$(menuToggle).data('collapsed', false)
+            $_auxiliaryWrp.removeClass('js-closed').removeClass('js-open')
+            $_auxiliaryPanel.removeAttr('style')
+        }
+    }
+    $(window).on('resize orientationchange', function() {
+        resizeMenu();
+    });
+    $('.panelBtn').on('click', function(event) {
+        event.preventDefault();
+        menu(event);
+    });
+
+/* Popup
 * Website: http://dimsemenov.com/plugins/magnific-popup/
     ==========================================================================
 */
@@ -135,7 +147,7 @@ jQuery(document).ready(function($) {
             remove: false
         });
     };
-       /* Scrollbar
+    /* Scrollbar
     * Website: http://brm.io/jquery-match-height/
     ==========================================================================
     */
@@ -151,7 +163,10 @@ jQuery(document).ready(function($) {
 
     $('.style-input input, .style-input select').styler();
 
-     /* function ajaxStop
+
+
+
+    /* function ajaxStop
         ==========================================================================
     */
 
@@ -160,138 +175,7 @@ jQuery(document).ready(function($) {
         funcMatchHeight();
         //sliderInit();
     });
+    // ------------------My js END-------------------------
 
 
-
-
-
-// ------------------My js END-------------------------
-
-    // ---------------Globals js yulia---------------
-    var $_win = $(window),
-        $_html = $('html'),
-        $_body = $('body'),
-
-        //Breakpoint
-        mobileBreakpoint = 480,
-        tabletBreakpoint = 767,
-        laptopBreakpoint = 992;
-
-
-
-
-
-
-
-
-    /*
-        @returns {*} window width
-        ==========================================================================
-    */
-    function getWindowWidth() {
-        return $_win.width();
-    }
-    /*
-        @returns {boolean} true if mobile
-        ==========================================================================
-    */
-    function isMobileResolution() {
-        var isMobile = false;
-        if (getWindowWidth() <= mobileBreakpoint) {
-            isMobile = true;
-        }
-        return isMobile;
-    }
-    /*
-        @returns {boolean} true if tablet
-        ==========================================================================
-    */
-    function isTabletResolution() {
-        var isTablet = false;
-        if (getWindowWidth() <= tabletBreakpoint && getWindowWidth() >= mobileBreakpoint) {
-            isTablet = true;
-        }
-        return isTablet;
-    }
-
-    /*
-        @returns {boolean} true if tablet
-        ==========================================================================
-    */
-    function isLaptopResolution() {
-        var isLaptop = false;
-        if (getWindowWidth() <= laptopBreakpoint && getWindowWidth() >= tabletBreakpoint) {
-            isLaptop = true;
-        }
-        return isLaptop;
-    }
-
-    /*
-        @returns {boolean} true if desktop
-        ==========================================================================
-    */
-    function isDesktopResolution() {
-        var isDesktop = false;
-        if (getWindowWidth() >= laptopBreakpoint) {
-            isDesktop = true;
-        }
-        return isDesktop;
-    }
-
-    /*
-        @returns {boolean} true if desktop
-        ==========================================================================
-    */
-
-
-    function checkWindowSize() {
-        if (isMobileResolution()) {
-            $_body.removeClass('no-mobile');
-            $_body.addClass('is-mobile');
-        } else {
-            $_body.removeClass('is-mobile');
-            $_body.addClass('no-mobile');
-
-        }
-        if (isTabletResolution()) {
-            $_body.removeClass('no-tablet');
-            $_body.addClass('is-tablet');
-        } else {
-            $_body.removeClass('is-tablet');
-            $_body.addClass('no-tablet');
-
-        }
-        if (isLaptopResolution()) {
-            $_body.removeClass('no-laptop');
-            $_body.addClass('is-laptop');
-        } else {
-            $_body.removeClass('is-laptop');
-            $_body.addClass('no-laptop');
-        }
-
-        if (isDesktopResolution()) {
-            $_body.removeClass('no-desktop');
-            $_body.addClass('is-desktop');
-        } else {
-            $_body.removeClass('is-desktop');
-            $_body.addClass('no-desktop');
-        }
-
-    }
-    checkWindowSize();
-
-
-
-
-
-
-
-    /* function resize
-        ==========================================================================
-    */
-    $_win.on('resize orientationchange', function() {
-        funcMatchHeight();
-        myScrollbar();
-    });
-    funcMatchHeight();
 });
