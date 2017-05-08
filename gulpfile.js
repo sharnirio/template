@@ -48,26 +48,9 @@ var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     browserSync = require("browser-sync"),
     smartgrid = require('smart-grid'),
+    gulpRemoveHtml = require('gulp-remove-html'),
     reload = browserSync.reload;
 
-
-// task for deploy on production
-// незабудь заменить данные для входа в файле pass.js
-const pass = require('./pass.js');
-gulp.task( 'ftp', function() {
-    var conn = ftp.create( {
-        host:     pass.host,
-        user:     pass.login,
-        password: pass.password,
-        // port: 21,
-        // parallel: 1,
-        // maxConnections:1
-    } );
-    return gulp.src(pass.globsPath)
-        .pipe( conn.newer(pass.newerFolder) ) // only upload newer files
-        .pipe( conn.dest(pass.path) );
-
-} );
 
 // variables ways
 
@@ -94,6 +77,7 @@ var path = {
         js:  ['src/js/main.js', 'src/js/ie/*.js'],
         jsMap:  ['src/js/google-map.js'],
         jsLibs: ['src/js/libs.js'],
+        jsDev:  ['src/js/development.js'],
         style: 'src/style/main.scss',
         img: ['src/img/**/*.+(jpg|JPG|jpeg|png|svg|gif|ico)','!src/img/sprite-icon/**/*', '!src/img/svg/template/*.*'],
         spriteSass: 'src/style/component/',
@@ -120,6 +104,32 @@ var path = {
     cleanProd: './production'
 
 };
+
+// task for deploy on production
+// незабудь заменить данные для входа в файле pass.js
+const pass = require('./pass.js');
+gulp.task( 'ftp-task', function() {
+    var conn = ftp.create( {
+        host:     pass.host,
+        user:     pass.login,
+        password: pass.password,
+        // port: 21,
+        // parallel: 1,
+        // maxConnections:1
+    } );
+    return gulp.src(pass.globsPath)
+        .pipe( conn.newer(pass.newerFolder) ) // only upload newer files
+        .pipe( conn.dest(pass.path) );
+
+} );
+
+// task for deploy on production wiht time out
+gulp.task('ftp', ['css:buildProd'], function (cb) {
+    setTimeout(function () {
+        gulp.start('ftp-task')
+        cb();
+    }, 5000);
+});
 
 // variables for browserSync
 
@@ -191,12 +201,21 @@ gulp.task('jsMap:build', function() {
         .pipe(gulp.dest(path.build.js))
         .pipe(reload({ stream: true }));
 });
+
 gulp.task('jsLibs:build', function() {
     gulp.src(path.src.jsLibs)
         .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
         .pipe(sourcemaps.init())
         .pipe(rigger())
         .pipe(sourcemaps.write())
+        .pipe(gulp.dest(path.build.js))
+        .pipe(reload({ stream: true }));
+});
+
+gulp.task('jsDev:build', function() {
+    gulp.src(path.src.jsDev)
+        .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
+        .pipe(rigger())
         .pipe(gulp.dest(path.build.js))
         .pipe(reload({ stream: true }));
 });
@@ -290,7 +309,7 @@ gulp.task('watch', function () {
 // task to all build testing project
 
 gulp.task('all', ['clean', 'sprite', 'smartgrid'], function () {
-    gulp.start('cleancache', 'build','jsMap:build', 'jsLibs:build', 'jsLibs:build', 'watch', 'webserver');
+    gulp.start('cleancache', 'build', 'jsLibs:build','jsMap:build', 'jsDev:build', 'watch', 'webserver');
 });
 
 
@@ -304,6 +323,7 @@ gulp.task('default', [ 'build', 'jsLibs:build', 'webserver', 'watch']);
 var configProd = {
     server: {
         baseDir: "./production",
+        index: "home.html",
         reloadDelay: 300,
     },
     tunnel: false,
@@ -379,6 +399,7 @@ gulp.task('html:buildProd', function() {
     gulp.src(path.src.html)
         .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
         .pipe(rigger())
+        .pipe(gulpRemoveHtml())
         .pipe(gulp.dest(path.production.html))
         .on('end', browserSync.reload);
 });

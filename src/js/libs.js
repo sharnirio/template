@@ -3,9 +3,6 @@
 //= libs/jquery-3.1.1.min.js
 
 // !important
-//= libs/fast-navigation.js
-
-// !important
 //= libs/stiky-footer.js
 
 // !important
