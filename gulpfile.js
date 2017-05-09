@@ -22,7 +22,6 @@
 // 6. папка source для исходников(макеты, шрифты)
 // 7. перед сдачей проекта проверить и отключить неиспользуемые плагины и библиотеки
 // как js так и scss файлы смотреть папку libs
-// 8. перед сдачей проекта отключить libs/fast-navigation.js
 // --------------------------------Task------------------------------------------
 // gulp - task to buld and watch  testing project ('build', 'webserver', 'watch')
 // gulp all - task to all build testing project ('clean', 'sprite', 'cleancache', 'build', 'watch', 'webserver')
@@ -49,6 +48,7 @@ var gulp = require('gulp'),
     browserSync = require("browser-sync"),
     smartgrid = require('smart-grid'),
     gulpRemoveHtml = require('gulp-remove-html'),
+    ftp = require('vinyl-ftp'),
     reload = browserSync.reload;
 
 
@@ -188,7 +188,6 @@ gulp.task('js:build', function() {
         .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
         .pipe(sourcemaps.init())
         .pipe(rigger())
-        // .pipe(uglify())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.js))
         .pipe(reload({ stream: true }));
@@ -387,7 +386,6 @@ gulp.task('jsLibs:buildProd', function() {
         .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
         .pipe(sourcemaps.init())
         .pipe(rigger())
-        // #todo глючит js из за минификации
         .pipe(uglify())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.production.js))
