@@ -9,7 +9,7 @@ $html_font: 100%;
 //more_full
 $screen-more_full: 1921px;
 //full
-$screen-full: 1920px;
+$screen-full: 1320px;
 //pc
 $screen-lg: 1100px;
 //tablets
@@ -24,19 +24,30 @@ $screen-c: 320px;
 
 
 //-----------------------------------spacing
-$spacing-default: 15px;
-$spacing:         10px;
-$spacing-double:  $spacing * 2;
-$spacing-third:   $spacing * 3;
-$spacing-fourth:  $spacing * 4;
-$spacing-half:    $spacing / 2;
+// $spacing-default: 15px;
+// $spacing:         10px;
+// $spacing-double:  $spacing * 2;
+// $spacing-third:   $spacing * 3;
+// $spacing-fourth:  $spacing * 4;
+// $spacing-half:    $spacing / 2;
 
-//-----------------------------------color
-$fon-brand:             #53337e;
-$color-brand:			#000;
-$color-base:            #fff;
-$color-base-med:        #f6f6f6;
-$color-default:         #212121;
-$color-default-med:     #5a5a5a;
-$color-default-light:   #767676;
-$color-light:           #c8c8c8;
+//-----------------------------------color background
+$fon-white:           	#fff;
+$fon-brand:             #f26321;
+$fon-dark:              darken($fon-brand,30%);
+$fon-light:             lighten($fon-brand,30%);
+
+//-----------------------------------color fonts
+$color-white:           #fff;
+$color-brand:			#f26321;
+$color-dark:            darken($color-brand,30%);
+$color-light:           lighten($color-brand,30%);
+
+//-----------------------------------color opacity
+$dark_opacity:    rgba(#000, 0.95);
+$white_opacity:   rgba(#fff, 0.3);
+
+//-----------------------color form
+$fon-input: transparent;
+$color-input: #fff;
+$color-placeholder: #fff;

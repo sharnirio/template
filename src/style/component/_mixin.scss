@@ -57,18 +57,6 @@
 }
 
 // @include respond-to(fon) { border: none; }
-// Создаем mixin animate dalay and duration
-@mixin animate ($delay:1s
-/* , $duration:1s */
-
-) {
-    // .animated  {
-    animation-delay: $delay;
-    // animation-duration: $duration;
-    // }
-}
-
-// @include animate ();
 // Создаем mixin для центрирования
 @mixin center($horizontal: true, $vertical: true) {
     position: absolute;
@@ -88,7 +76,6 @@
 }
 
 // @include centerer(true, true);
-
 //mixin  reset-buton
 @mixin reset-btn() {
     border: none;
@@ -129,8 +116,7 @@
 // p { @include lh(36px);}
 //mixin calculate em --- px
 $browser-context: 16;
-@function em($pixels,
-$context: $browser-context) {
+@function em($pixels, $context: $browser-context) {
     @if (unitless($pixels)) {
         $pixels: $pixels * 1px;
     }
@@ -141,4 +127,3 @@ $context: $browser-context) {
 }
 
 //h1 { font-size: em(32); }
-
