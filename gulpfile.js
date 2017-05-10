@@ -79,7 +79,8 @@ var path = {
         jsLibs: ['src/js/libs.js'],
         jsDev:  ['src/js/development.js'],
         style: 'src/style/main.scss',
-        img: ['src/img/**/*.+(jpg|JPG|jpeg|png|svg|gif|ico)','!src/img/sprite-icon/**/*', '!src/img/svg/template/*.*'],
+        styleDev: 'src/style/development.scss',
+        img: ['src/img/**/*.*','!src/img/sprite-icon/**/*.*', '!src/img/svg/template/*.*'],
         spriteSass: 'src/style/component/',
         spriteOrigin: 'src/img/sprite-icon/*.+(JPG|jpg|jpeg|png)',
         spriteImgPath: 'src/img/',
@@ -173,7 +174,23 @@ gulp.task('css:build', function() {
         .pipe(sourcemaps.init())
         .pipe(sass())
         .pipe(autoprefixer({
-            browsers: ['last 16 versions'],
+            browsers: ['last 10 versions'],
+            cascade: false
+        }))
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest(path.build.css))
+        .pipe(reload({ stream: true }));
+});
+
+// bild css buildProd
+
+gulp.task('css:buildDev', function() {
+    gulp.src(path.src.styleDev)
+        .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
+        .pipe(sourcemaps.init())
+        .pipe(sass())
+        .pipe(autoprefixer({
+            browsers: ['last 10 versions'],
             cascade: false
         }))
         .pipe(sourcemaps.write())
@@ -276,6 +293,7 @@ gulp.task('build', [
     'html:build',
     'js:build',
     'css:build',
+    'css:buildDev',
     'fonts:build',
     'image:build'
 ]);
@@ -287,13 +305,13 @@ gulp.task('watch', function () {
     gulp.watch([path.watch.html], ['html:build']).on('change', function () {
         notify("HTML file was changed!").write('');
     });
-    gulp.watch([path.watch.style], ['css:build']).on('change', function () {
+    gulp.watch([path.watch.style], ['css:build', 'css:buildDev']).on('change', function () {
         notify("CSS file was changed!").write('');
     });
     gulp.watch([path.watch.js], ['js:build']).on('change', function () {
         notify("JS file was changed!").write('');
     });
-    gulp.watch([path.watch.jsLibs], ['jsLibs:build']).on('change', function () {
+    gulp.watch([path.watch.jsLibs], ['jsLibs:build', 'jsDev:build']).on('change', function () {
         notify("JS-LIBS file was changed!").write('');
     });
     gulp.watch([path.watch.fonts], ['fonts:build']).on('change', function () {
@@ -314,7 +332,7 @@ gulp.task('all', ['clean', 'sprite', 'smartgrid'], function () {
 
 // task to buld and watch  testing project
 
-gulp.task('default', [ 'build', 'jsLibs:build', 'webserver', 'watch']);
+gulp.task('default', [ 'build', 'jsLibs:build', 'jsDev:build', 'webserver', 'watch']);
 
 
 //  task to config webserver for browserSync
@@ -361,7 +379,6 @@ gulp.task('css:buildProd', function() {
         .pipe(gulp.dest(path.production.css))
         .pipe(reload({ stream: true }));
 });
-
 
 
 // bild js file
