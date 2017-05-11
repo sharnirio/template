@@ -4,21 +4,21 @@
     margin: 0 auto;
     position: relative;
     padding: 0;
-    background: #fff;
+    background: $fon-white;
     p {
         position: relative;
         margin-bottom: 20px;
-        color: #6a6a6a;
+        color: $color-dark;
         font-size: 16px
     }
     .big-title {
-        color: #1e2a32;
+        color: $color-dark;
         @include fs(30px);
         text-transform: uppercase;
         text-align: center;
         width: 100%;
-        background-color: #53337e;
-        color: #fff;
+        background-color: $fon-brand;
+        color: $color-white;
         line-height: 1;
         padding: 35px 60px 35px 0;
     }
@@ -36,12 +36,12 @@
             margin: 0 auto;
             border-style: solid;
             border-width: 2px;
-            border-color: #53337e;
+            border-color: $color-brand;
             box-sizing: border-box;
-            background-color: rgba(83, 51, 126, 0);
+            background-color: $fon-white;
             text-shadow: none !important;
             text-transform: uppercase;
-            color: #53337e;
+            color: $color-brand;
             font-size: 11px;
             width: 224px;
             height: 42px;
@@ -49,10 +49,10 @@
                 width: 100%;
             }
             &:hover {
-                background: #53337e !important;
+                background: darken($color-brand,30%);
                 box-shadow: none !important;
                 text-shadow: none !important;
-                color: #fff;
+                color: $color-white;
             }
         }
         .icon-paper-plane {
@@ -60,7 +60,7 @@
             top: 24px;
             left: 28%;
             font-size: 18px;
-            color: #fff;
+            color: $color-white;
             border-left: none;
             line-height: 1;
             @include respond-to(wide_handhelds) {
@@ -103,7 +103,7 @@
     [class*=" icon-"],
     [class^=icon-] {
         position: absolute;
-        border-left: 1px solid #e3e4e5;
+        border-left: 1px solid $color-brand;
         top: 5px;
         color: #983350;
         margin-top: 0;
@@ -127,8 +127,8 @@
         border-color: #e3e4e5;
         -webkit-box-sizing: border-box;
         box-sizing: border-box;
-        background-color: #fff;
-        color: #1e2a32;
+        background-color: $color-white;
+        color: $color-dark;
         font-size: 18px;
         height: 48px;
     }
@@ -157,7 +157,7 @@ button.mfp-close {
 
 .close-click,
 .mfp-close {
-    color: #9c9c9c;
+    color: $color-light;
     background: transparent;
     border: none;
     width: 60px;
@@ -172,7 +172,7 @@ button.mfp-close {
     opacity: .65;
     padding: 0 0 18px 10px;
     &:hover {
-    	color: #000;
+    	color: $color-dark;
     }
 }
 
@@ -193,11 +193,14 @@ button.mfp-close {
         vertical-align: middle;
     }
 }
-.popup-wrp form input[type="color"], .popup-wrp form input[type="date"], .popup-wrp form input[type="datetime"], .popup-wrp form input[type="datetime-local"], .popup-wrp form input[type="email"], .popup-wrp form input[type="month"], .popup-wrp form input[type="number"], .popup-wrp form input[type="password"], .popup-wrp form input[type="search"], .popup-wrp form input[type="tel"], .popup-wrp form input[type="text"], .popup-wrp form input[type="time"], .popup-wrp form input[type="url"], .popup-wrp form input[type="week"], .popup-wrp form input:not([type]), .popup-wrp form textarea {
+.popup-wrp form input[type="color"],
+.popup-wrp form input[type="date"],
+.popup-wrp form input[type="datetime"],
+.popup-wrp form input[type="datetime-local"], .popup-wrp form input[type="email"], .popup-wrp form input[type="month"], .popup-wrp form input[type="number"], .popup-wrp form input[type="password"], .popup-wrp form input[type="search"], .popup-wrp form input[type="tel"], .popup-wrp form input[type="text"], .popup-wrp form input[type="time"], .popup-wrp form input[type="url"], .popup-wrp form input[type="week"], .popup-wrp form input:not([type]), .popup-wrp form textarea {
     margin-top: 5px;
-    border: 1px solid #838383;
+    border: 1px solid $color-brand;
     border-radius: 6px;
-    color: #212121;
+    color: $color-brand;
     height: 46px
 }
 .popup-wrp  {
@@ -219,8 +222,8 @@ button.mfp-close {
     display: block;
     width: 18px;
     height: 18px;
-    border: 1px solid #000;
-    background: #fff;
+    border: 1px solid $color-brand;
+    background: $fon-white;
 }
 .jq-checkbox input, .jq-radio input {
     width: 100%;
@@ -233,7 +236,7 @@ button.mfp-close {
     -webkit-box-shadow: none;
     box-shadow: none;
     display: block;
-    background: #53337e;
+    background: $fon-brand;
 }
 .jq-checkbox input, .jq-radio input {
     width: 100%;
@@ -242,16 +245,16 @@ button.mfp-close {
     left: 0;
 }
 .jq-checkbox.focused {
-	border: 1px solid red;
+	border: 1px solid $color-brand;;
 }
 .jq-radio.focused {
-	border: 1px solid red;
+	border: 1px solid $color-brand;;
 }
 .jq-checkbox.checked .jq-radio__div, .jq-radio.checked .jq-radio__div {
     -webkit-box-shadow: none;
     box-shadow: none;
     display: block;
-    background: #53337e;
+    background: $fon-brand;
 }
 // #form style #select
 .popup-wrp .jq-selectbox {
@@ -265,7 +268,7 @@ button.mfp-close {
     -webkit-border-radius: 6px;
     border-radius: 6px;
     color: #212121;
-        background: #fff;
+        background: $fon-white;
     height: 48px;
     line-height: 46px;
 }
@@ -277,10 +280,10 @@ button.mfp-close {
     top: calc(50% - 10px);
     right: 22px;
     font-size: 20px;
-    color: #53337e;
+    color: $color-brand;
 }
 .jqselect.focused {
-	border: 1px solid red;
+	border: none;
 }
 .jq-selectbox__trigger-arrow {
  @extend .icon-angle-down;
@@ -296,8 +299,8 @@ button.mfp-close {
     bottom: inherit !important;
 }
 .jq-selectbox li.selected {
-    background: red;
+    background-color: $fon-brand;
 }
 .jq-selectbox li:hover {
-    background: #53337e;
+    background-color: $fon-brand;
 }

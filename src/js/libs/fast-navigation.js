@@ -10,5 +10,5 @@ function pageWidget(pages) {
 }
 
 $(document).ready(function($) {
-    pageWidget(['home', "article", "contact"]);
+    pageWidget(['home', "article", "contact", "module"]);
 });

@@ -36,11 +36,26 @@ jQuery(document).ready(function($) {
             }
             e.preventDefault();
         });
+    // закрытие поиска по клику в любом месте
+    function clickDocument(event) {
+        var clickDoc = $('.clickDoc');
+        var div2 = $('header .btn-search')
+        if (!clickDoc.is(event.target) // если клик был не по блоку
+            && clickDoc.has(event.target).length === 0) { // и не по его дочерним элементам
+            clickDoc.fadeOut(200);
+            div2.removeClass("on");
+        }
+    }
+    $(document).mouseup(function(event) { // событие клика по веб-документу
+        clickDocument(event)
+    });
     }
     seachFade();
 
+
+
     // menu and other
-    function menu(event) {
+    function blockCollapsed(event) {
 
         var trigger = '.panelBtn',
             menuToggle = '.panelToggle',
@@ -58,7 +73,7 @@ jQuery(document).ready(function($) {
         }
     }
 
-    function resizeMenu() {
+    function resizeblockCollapsed() {
         var $_auxiliaryWrp = $('.resizeWrp'),
             $_auxiliaryPanel = $('.resizePanel');
         if ($(window).width() >= 768) {
@@ -68,11 +83,11 @@ jQuery(document).ready(function($) {
         }
     }
     $(window).on('resize orientationchange', function() {
-        resizeMenu();
+        resizeblockCollapsed();
     });
     $('.panelBtn').on('click', function(event) {
         event.preventDefault();
-        menu(event);
+        blockCollapsed(event);
     });
 
 /* Popup

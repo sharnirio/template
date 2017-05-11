@@ -74,6 +74,7 @@ var path = {
     },
     src: {
         html: ['src/**/*.html', '!src/template/**/*.html', '!src/img/svg/template/*.*', '!src/fonts/**/*.html'],
+        htmlProd: ['src/**/*.html', '!src/module.html', '!src/template/**/*.html', '!src/img/svg/template/*.*', '!src/fonts/**/*.html'],
         js:  ['src/js/main.js', 'src/js/ie/*.js'],
         jsMap:  ['src/js/google-map.js'],
         jsLibs: ['src/js/libs.js'],
@@ -129,7 +130,7 @@ gulp.task('ftp', ['css:buildProd'], function (cb) {
     setTimeout(function () {
         gulp.start('ftp-task')
         cb();
-    }, 5000);
+    }, 2000);
 });
 
 // variables for browserSync
@@ -411,7 +412,7 @@ gulp.task('jsLibs:buildProd', function() {
 // bild html file
 
 gulp.task('html:buildProd', function() {
-    gulp.src(path.src.html)
+    gulp.src(path.src.htmlProd)
         .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
         .pipe(rigger())
         .pipe(gulpRemoveHtml())

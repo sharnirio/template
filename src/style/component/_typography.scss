@@ -310,6 +310,7 @@ input:-ms-input-placeholder {
     top: 0;
     left: -4px;
 }
+
 .text-style ol {
     counter-reset: li;
 }
@@ -487,15 +488,21 @@ table th {
         margin-right: -15px;
         margin-left: -15px;
     }
-    a {
-        @extend .color-brand;
-        font-size: 16px;
-        &:hover {
-            text-decoration: underline;
-        }
-    }
 }
 
+a {
+    color: $color-brand;
+    font-size: 16px;
+    &:hover {
+        color: darken($fon-brand, 20%);
+        text-decoration: underline;
+    }
+}
+select:focus,
+input:focus,
+button:focus {
+    outline: 0;
+}
 body {
     background: #ccc;
 }

@@ -10,4 +10,5 @@ jQuery( document ).ready(function() {
 		window.scroll(10000 ,10000);
 		return false;
 	});
+	jQuery('#scrollDown').fadeOut(300);
 });
