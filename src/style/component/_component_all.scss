@@ -1,14 +1,17 @@
 //-------===== component
-//-----my variable
+//-----variable
 @import "_variable";
 
-//-----my mixin
+//-----mixin
 @import "_mixin";
 
-//-----my fonts
+//-----map
+@import "_map";
+
+//-----fonts
 @import "_button";
 
-//-----my fonts
+//-----fonts
 @import "_fonts";
 
 // for sprite
@@ -16,7 +19,7 @@
 // ------ to support the retina uncommented bottom line
 //@include retina-sprites($retina-groups);
 
-//-----my typography
+//-----typography
 @import "_typography";
 
 

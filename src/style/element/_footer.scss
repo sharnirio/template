@@ -7,17 +7,19 @@
 // #footer
 .footer {
     &_top {
-        background-color: #000;
+        padding: $s_fourth 0;
+        background-color: $fon-brand;
         position: relative;
         min-height: 30px;
     }
     // #footer_nav
     .main-footer_nav a {
-        color: #fff;
+        color: $color-white;
         @include fs(16px);
         display: block;
         padding: 15px 0;
         &:hover {
+            color: $color-dark;
             text-decoration: underline;
         }
     }

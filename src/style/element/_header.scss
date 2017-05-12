@@ -8,16 +8,17 @@
         padding-bottom: 20px;
     }
     .container_wraper {
-        background-color: #000;
+        background-color: $fon-brand;
     }
     // #header_nav
     .main-header_nav a {
-        color: #fff;
+        color: $color-dark;
         @include fs(16px);
         display: block;
         padding: 15px 0;
         &:hover {
             text-decoration: underline;
+            color: $color-light;
         }
     }
     .main-header_ul {
@@ -62,7 +63,7 @@
 
 .nav-toggle_burger {
     z-index: 99;
-    color: #fff;
+    color: $color-white;
     border: none;
     background: 0 0;
     width: 20px;
@@ -80,13 +81,12 @@
         display: block;
         width: 20px;
         height: 4px;
-        background: #ffffff;
+        background-color: $fon-white;
     }
 }
 
 .burger__button {
     position: absolute;
-
     display: none;
     width: 25px;
     height: 25px;
@@ -162,9 +162,8 @@
 // search
 .seach {
     position: absolute;
-    color: #fff;
-    font-size: 20px;
-    font-size: 1.25rem;
+    color: $color-white;
+    @include fs(20px);
     .header & {
         top: calc(0% + 15px);
         right: 20px;

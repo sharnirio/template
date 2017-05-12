@@ -1,6 +1,10 @@
-// fonts
-$html_font: 100%;
-
+//-----------------------------------spacing
+$s_default: 15px;
+$s:         10px;
+$s_double:  $s * 2;
+$s_third:   $s * 3;
+$s_fourth:  $s * 4;
+$s_half:    $s / 2;
 
 //more_full
 $screen-more_full: 1921px;
@@ -17,15 +21,19 @@ $screen-xs: 480px;
 //fon
 $screen-c: 320px;
 
+//-----------------------------------fonts size
 
-
-//-----------------------------------spacing
-// $spacing-default: 15px;
-// $spacing:         10px;
-// $spacing-double:  $spacing * 2;
-// $spacing-third:   $spacing * 3;
-// $spacing-fourth:  $spacing * 4;
-// $spacing-half:    $spacing / 2;
+$html_font: 100%;
+$font-size-base: 16px;
+$font-xs:        13px;
+$font-xm:        14px;
+$font-default:   15px;
+$font-sm:        16px;
+$font-md:        18px;
+$font-md-md:     22px;
+$font-md-big:    26px;
+$font-lg:        30px;
+$font-lg-x:      34px;
 
 //-----------------------------------color background
 $fon-white:           	#fff;
@@ -47,3 +55,4 @@ $white_opacity:   rgba(#fff, 0.3);
 $fon-input: transparent;
 $color-input: #fff;
 $color-placeholder: #fff;
+

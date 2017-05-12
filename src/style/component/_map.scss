@@ -1,0 +1,65 @@
+//-----------------------------------background-fon map
+$background-fon: (white: $fon-white, brand: $fon-brand, dark: $fon-dark, light: $fon-light );
+
+//-----------------------------------background fon generate class
+.fon {
+    @each $fon, $background in $background-fon {
+        &-#{$fon} {
+            background: $background;
+        }
+    }
+}
+// @extend .fon-white; @extend .fon-brand;
+
+
+// //-----------------------------------fonts size
+// $font-size-base: 16px;
+// $font-xs:        13px;
+// $font-xm:        14px;
+// $font-default:   15px;
+// $font-sm:        16px;
+// $font-md:        18px;
+// $font-md-md:     22px;
+// $font-md-big:    26px;
+// $font-lg:        30px;
+// $font-lg-x:      34px;
+
+
+
+//-----------------------------------the title of the font size on the sub page
+$title-size-sub: (1: $font-lg-x, 2: $font-lg, 3: $font-md-md, 4: $font-md, 5: $font-sm, 6: $font-default);
+
+//-----------------------------------the title of the font size on the home page
+$title-main-size: (1: $font-lg-x, 2: $font-lg, 3: $font-md-md, 4: $font-md, 5: $font-sm, 6: $font-default);
+
+
+//-----------------------------------the title of the font size on the home page
+h {
+	@each $title-main, $size in $title-main-size {
+		&#{$title-main} {
+			// font-size: $size;
+			@include fs($size);
+			line-height: normal;
+			font-weight: normal;
+			margin: $s_default 0;
+			@extend %fontReg;
+			&.main-titles {
+				font-size: $font-lg-x;
+				text-align: center;
+				margin: $s_third 0;
+			}
+}
+}
+};
+//-----------------------------------the title of the font size on the sub page
+.main-page h,
+.sub-page h {
+	@each $title, $size-sub in $title-size-sub {
+		&#{$title} {
+			font-size: $size-sub;
+			@extend %fontReg;
+			color: $color-dark;
+			line-height: normal;
+		}
+	}
+}
