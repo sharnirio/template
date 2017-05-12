@@ -73,8 +73,8 @@ var path = {
         fonts: 'production/fonts/'
     },
     src: {
-        html: ['src/**/*.html', '!src/template/**/*.html', '!src/img/svg/template/*.*', '!src/fonts/**/*.html'],
-        htmlProd: ['src/**/*.html', '!src/module.html', '!src/template/**/*.html', '!src/img/svg/template/*.*', '!src/fonts/**/*.html'],
+        html: ['src/**/*.html', '!src/module/**/*.*', '!src/template/**/*.html', '!src/img/svg/template/*.*', '!src/fonts/**/*.html'],
+        htmlProd: ['src/**/*.html', '!src/module.html', '!src/module/**/*.*', '!src/template/**/*.html', '!src/img/svg/template/*.*', '!src/fonts/**/*.html'],
         js:  ['src/js/main.js', 'src/js/ie/*.js'],
         jsMap:  ['src/js/google-map.js'],
         jsLibs: ['src/js/libs.js'],
@@ -101,6 +101,20 @@ var path = {
         notifijs: 'src/js/**/*.*',
         notifistyle: 'src/style/**/*.*',
         notifihtml: 'src/**/*.html',
+    },
+    module: {
+        src: {
+            style: 'src/module/main.scss',
+            js: 'src/module/main.js',
+        },
+        build: {
+            style: 'build/css/module/',
+            js: 'build/js/module/',
+        },
+        watch: {
+            style: 'src/module/**/*.+(scss|sass)',
+            js: 'src/module/**/*.js',
+        },
     },
     clean: './build',
     cleanProd: './production'
@@ -333,7 +347,7 @@ gulp.task('all', ['clean', 'sprite', 'smartgrid'], function () {
 
 // task to buld and watch  testing project
 
-gulp.task('default', [ 'build', 'jsLibs:build', 'jsDev:build', 'webserver', 'watch']);
+gulp.task('default', [ 'build', 'jsLibs:build', 'jsDev:build', 'webserver', 'watch', 'watchMod']);
 
 
 //  task to config webserver for browserSync
@@ -510,3 +524,42 @@ smartgrid(path.Project.pathProject + 'src/style/libs', settings);
 });
 
 // #end
+
+//#module
+
+// bild css file
+gulp.task('css:Modbuild', function() {
+    gulp.src(path.module.src.style)
+        .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
+        .pipe(sourcemaps.init())
+        .pipe(sass())
+        .pipe(autoprefixer({
+            browsers: ['last 10 versions'],
+            cascade: false
+        }))
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest(path.module.build.style))
+        .pipe(reload({ stream: true }));
+});
+
+// bild js file
+
+gulp.task('js:Modbuild', function() {
+    gulp.src(path.module.src.js)
+        .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
+        .pipe(sourcemaps.init())
+        .pipe(rigger())
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest(path.module.build.js))
+        .pipe(reload({ stream: true }));
+});
+gulp.task('watchMod', function () {
+    notify("Watcher is START!").write('');
+    gulp.watch([path.module.watch.style], ['css:Modbuild']).on('change', function () {
+        notify("CSS:Mod file was changed!").write('');
+    });
+    gulp.watch([path.module.watch.js], ['js:Modbuild']).on('change', function () {
+        notify("JS:Mod file was changed!").write('');
+    });
+
+});
