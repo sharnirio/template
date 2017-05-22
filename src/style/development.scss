@@ -1,3 +1,27 @@
+//-----плагин для pixel perfect
+@import "libs/_pixel-glass";
+//-----Pixel Glass style --
+  html {
+    background-repeat: no-repeat;
+    background-position:  50% 0;
+    /* Mobile layout by default */
+    background-image: url( "../img/template/320.png" );
+  }
+  /* Desktop */
+  @media ( min-width: 1200px ) {
+    html {
+      /* Desktop layout */
+      background-image: url( "../img/template/1200.png" );
+    }
+    html .container {
+  	//указать ширину равную ширине картинки для пиксель пэрфекта
+    max-width: 1100px;
+}
+  }
+
+
+
+
 // #scrollup & #scrollDown
 #scrollup {
 position: fixed; /* фиксированная позиция */

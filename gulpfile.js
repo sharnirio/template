@@ -82,6 +82,7 @@ var path = {
         style: 'src/style/main.scss',
         styleDev: 'src/style/development.scss',
         img: ['src/img/**/*.*','!src/img/sprite-icon/**/*.*', '!src/img/svg/template/*.*'],
+        imgProd: ['src/img/**/*.*','!src/img/sprite-icon/**/*.*', '!src/img/svg/template/*.*', '!src/img/template/**/*.*'],
         spriteSass: 'src/style/component/',
         spriteOrigin: 'src/img/sprite-icon/*.+(JPG|jpg|jpeg|png)',
         spriteImgPath: 'src/img/',
@@ -446,7 +447,7 @@ gulp.task('fonts:buildProd', function() {
 // to do настроить плагины а то неочень сжимает
 
 gulp.task('image:buildProd', function() {
-    gulp.src(path.src.img, path.src.imgIgnor)
+    gulp.src(path.src.imgProd)
         .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
         .pipe(cache(imagemin({
             progressive: true,
@@ -525,7 +526,7 @@ smartgrid(path.Project.pathProject + 'src/style/libs', settings);
 
 // #end
 
-//#module
+//----------------------#module block start
 
 // bild css file
 gulp.task('css:Modbuild', function() {

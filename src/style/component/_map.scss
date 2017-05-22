@@ -54,12 +54,13 @@ h {
 //-----------------------------------the title of the font size on the sub page
 .main-page h,
 .sub-page h {
-	@each $title, $size-sub in $title-size-sub {
-		&#{$title} {
-			font-size: $size-sub;
 			@extend %fontReg;
 			color: $color-dark;
 			line-height: normal;
+	@each $title, $size-sub in $title-size-sub {
+		&#{$title} {
+			font-size: $size-sub;
+
 		}
 	}
 }
