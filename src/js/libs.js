@@ -1,6 +1,6 @@
 
 // !important
-//= libs/jquery-3.1.1.min.js
+//= libs/jquery.min.js
 
 // !important
 //= libs/stiky-footer.js

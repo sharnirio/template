@@ -128,3 +128,10 @@ $browser-context: 16;
 }
 
 //h1 { font-size: em(32); }
+
+//mixin size
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+// p { @include size(36px);}

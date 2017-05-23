@@ -1,5 +1,17 @@
-@import "header/header.scss";
+//-------===== component
+//-----variable
+@import "../style/component/_variable";
+//-----mixin
+@import "../style/component/_mixin";
+//-----reset style !important
+@import "../style/libs/_reset";
+//-----reset style !important
+@import "../style/libs/smart-grid";
 
-@import "footer/footer.scss";
 
-@import "home/home.scss";
+//-----header
+@import "header/header";
+//-----footer
+@import "footer/footer";
+
+@import "home/home";

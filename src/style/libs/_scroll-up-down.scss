@@ -1,0 +1,33 @@
+// #scrollup & #scrollDown
+#scrollup {
+position: fixed; /* фиксированная позиция */
+opacity: 0.5; /* прозрачность */
+background: #aaa;
+bottom: 15px; /* отступ слева */
+right: 15px;
+cursor: pointer;
+width: 30px;
+height: 30px;
+z-index: 999;
+text-align: center;
+line-height: 30px;
+i {
+	color: #000;
+}
+}
+#scrollDown {
+position: fixed; /* фиксированная позиция */
+opacity: 0.5; /* прозрачность */
+background: #aaa;
+top: 15px; /* отступ слева */
+right: 15px;
+cursor: pointer;
+width: 30px;
+height: 30px;
+z-index: 999;
+text-align: center;
+line-height: 30px;
+i {
+	color: #000;
+}
+}
