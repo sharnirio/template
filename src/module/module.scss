@@ -7,11 +7,17 @@
 @import "../style/libs/_reset";
 //-----reset style !important
 @import "../style/libs/smart-grid";
-
+//-----import fontelo
+@import "../style/libs/_fontello";
+@import "../fonts/fontello/css/fontello-codes.scss";
 
 //-----header
 @import "header/header";
 //-----footer
 @import "footer/footer";
+//-----module all style---------------------
+//-----module popupForm style
+@import "popupForm/popupForm";
 
-@import "home/home";
+//-----module simple-carusel style
+@import "simple-carusel/simple-carusel";

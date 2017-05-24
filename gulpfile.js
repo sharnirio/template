@@ -96,14 +96,14 @@ var path = {
         html: 'src/**/*.html',
         js: ['src/js/component/**/*.js', 'src/moduleWork/**/*.js'],
         jsLibs: 'src/js/libs/**/*.js',
-        style: ['src/style/**/*.+(scss|sass), src/moduleWork/**/*.+(scss|sass)'],
+        style: ['src/style/**/*.+(scss|sass)', 'src/moduleWork/**/*.+(scss|sass)'],
         img: 'src/img/**/*.+(jpg|JPG|jpeg|png|svg|gif|ico)',
         fonts: 'src/fonts/**/*.+(eot|woff2|woff|ttf|svg)',
     },
     module: {
         src: {
-            style: 'src/module/main.scss',
-            js: 'src/module/main.js',
+            style: 'src/module/module.scss',
+            js: 'src/module/module.js',
             html: ['src/module.html'],
         },
         build: {
@@ -185,7 +185,6 @@ gulp.task('cleancache', function () {
 
 gulp.task('css:build', function() {
     gulp.src(path.src.style)
-
         .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
         .pipe(sourcemaps.init())
         .pipe(sass())
@@ -348,7 +347,7 @@ gulp.task('all', ['clean', 'sprite', 'smartgrid'], function () {
 
 // task to buld and watch  testing project
 
-gulp.task('default', [ 'build', 'jsLibs:build', 'jsDev:build', 'mod', 'webserver', 'watch']);
+gulp.task('default', [ 'build', 'jsLibs:build', 'jsDev:build', 'watch', 'mod', 'webserver']);
 
 
 //  task to config webserver for browserSync

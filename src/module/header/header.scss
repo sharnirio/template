@@ -1,4 +1,6 @@
- .container {
+//main rules
+.container {
     @include wrapper();
     min-width: 250px;
 }
+

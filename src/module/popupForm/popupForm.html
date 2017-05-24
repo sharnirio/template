@@ -1,0 +1,52 @@
+<h2 style="text-align: center;font-size:28px;background-color:#ccc;">блок для вызова поапапа</h2>
+<!-- popup request -->
+<a href="#request" class="popup-show">popup-show - ссылка вызова попапа с формой</a>
+<!-- popup request end-->
+<!-- popup form -->
+<div class="hidden">
+    <div id="request" class="mfp-hide popup-wrp">
+        <div class="f1">
+            <button class="mfp-close">×</button>
+            <h2 class="popup-title">Оформить заявку</h2>
+            <form method="post" class="wpcf7-form">
+                <div class="popup-row">
+                    <div class="popup-col">
+                        <p>Ваше имя* <span class="wpcf7-form-control your-name">
+                                    <input type="text" name="your-name" value="" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required">
+                                </span></p>
+                    </div>
+                    <div class="popup-col">
+                        <p>Ваш e-mail <span class="wpcf7-form-control your-email">
+                                    <input type="email" name="your-email" value="" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-email">
+                                </span></p>
+                    </div>
+                    <div class="popup-col">
+                        <p>Ваш e-mail <span class="wpcf7-form-control your-email">
+                                    <input type="email" name="your-email" value="" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-email">
+                                </span></p>
+                    </div>
+                    <div class="popup-col">
+                        <p>Ваш e-mail <span class="wpcf7-form-control your-email">
+                                    <input type="email" name="your-email" value="" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-email">
+                                </span></p>
+                    </div>
+                </div>
+                <p class="btn-center">
+                    <input type="submit" value="Отправить сообщение" class="wpcf7-form-control wpcf7-submit btn btn-big-super">
+                </p>
+            </form>
+        </div>
+        <div class="f2 feedback" style="display:none">
+            <button class="close-click hid-popup">×</button>
+            <h2 class="popup-title">Заказ оформлен</h2>
+            <p>
+                <?php echo $wpcf7_request_sent_ok_text; ?>
+            </p>
+            <p>Это окно закроется через <span class="timer_inp">10</span> <span class="timer_text">секунд</span>, но вы можете ускорить процесс, нажав на кнопку или на значок "×".</p>
+            <div class="btn-center">
+                <a href="#" class="popup-close">Закрыть окно</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- popup form end-->

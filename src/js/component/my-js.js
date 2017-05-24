@@ -17,7 +17,7 @@ function startTimer(duration, display, display_text) {
             location.reload();
         }
     }, 1000);
-}
+};
 
 jQuery(document).ready(function($) {
     'use strict';
@@ -36,19 +36,19 @@ jQuery(document).ready(function($) {
             }
             e.preventDefault();
         });
-    // закрытие поиска по клику в любом месте
-    function clickDocument(event) {
-        var clickDoc = $('.clickDoc');
-        var div2 = $('header .btn-search')
-        if (!clickDoc.is(event.target) // если клик был не по блоку
-            && clickDoc.has(event.target).length === 0) { // и не по его дочерним элементам
-            clickDoc.fadeOut(200);
-            div2.removeClass("on");
+        // закрытие поиска по клику в любом месте
+        function clickDocument(event) {
+            var clickDoc = $('.clickDoc');
+            var div2 = $('header .btn-search')
+            if (!clickDoc.is(event.target) // если клик был не по блоку
+                && clickDoc.has(event.target).length === 0) { // и не по его дочерним элементам
+                clickDoc.fadeOut(200);
+                div2.removeClass("on");
+            }
         }
-    }
-    $(document).mouseup(function(event) { // событие клика по веб-документу
-        clickDocument(event)
-    });
+        $(document).mouseup(function(event) { // событие клика по веб-документу
+            clickDocument(event)
+        });
     }
     seachFade();
 
@@ -90,10 +90,10 @@ jQuery(document).ready(function($) {
         blockCollapsed(event);
     });
 
-/* Popup
-* Website: http://dimsemenov.com/plugins/magnific-popup/
-    ==========================================================================
-*/
+    /* Popup
+    * Website: http://dimsemenov.com/plugins/magnific-popup/
+        ==========================================================================
+    */
     function funcPopup() {
         // Image popups
         $('.js-gallery').magnificPopup({
@@ -192,5 +192,9 @@ jQuery(document).ready(function($) {
     });
     // ------------------My js END-------------------------
 
+    //------------import all moduleWork js
+    //----important do not delete------------
+    //= ../../moduleWork/moduleWork.js
 
+    // ------------------END--jQuery(document).ready-----------------------
 });
