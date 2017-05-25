@@ -2894,7 +2894,7 @@
 $('.main-slider').slick({
         speed: 300,
         centerMode: false,
-        dots: false,
+        dots: true,
         //autoplay: true,
         //autoplaySpeed: 7000,
         slidesToShow: 1,

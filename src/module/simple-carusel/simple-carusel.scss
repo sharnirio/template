@@ -96,6 +96,11 @@
 .slick-arrow.slick-hidden {
     display: none;
 }
+.slick-dots {
+    li {
+        display: inline-block;
+    }
+}
 // my style
 //#slider main
 .main-slider {
@@ -104,7 +109,7 @@
     }
     .slick-arrow-wrp-left {
         position: absolute;
-        top: 50%;
+        top: calc(50% - 24px);
         left: 0;
         z-index: 9;
         color: $color-brand;
@@ -120,7 +125,7 @@
     }
     .slick-arrow-wrp-right {
         position: absolute;
-        top: 50%;
+        top: calc(50% - 24px);
         right: 0;
         z-index: 9;
         color: $color-brand;
@@ -135,4 +140,3 @@
         }
     }
 }
-

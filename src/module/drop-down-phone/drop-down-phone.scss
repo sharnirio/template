@@ -1,0 +1,17 @@
+.header_number {
+    position: relative;
+    text-align: center;
+    &:before {
+        display: inline-block;
+    }
+    .panelToggle_main {
+        display: inline-block;
+    }
+    .panelToggle {
+        display: none;
+        z-index: 2;
+    }
+    .panelBtn {
+        color: #000;
+    }
+}
