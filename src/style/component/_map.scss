@@ -25,12 +25,11 @@ $background-fon: (white: $fon-white, brand: $fon-brand, dark: $fon-dark, light: 
 // $font-lg-x:      34px;
 
 
-
 //-----------------------------------the title of the font size on the sub page
-$title-size-sub: (1: $font-lg-x, 2: $font-lg, 3: $font-md-md, 4: $font-md, 5: $font-sm, 6: $font-default);
+$title-size-sub: (1: $font-h1, 2: $font-h2, 3: $font-h3, 4: $font-h4, 5: $font-h5, 6: $font-h6);
 
 //-----------------------------------the title of the font size on the home page
-$title-main-size: (1: $font-lg-x, 2: $font-lg, 3: $font-md-md, 4: $font-md, 5: $font-sm, 6: $font-default);
+$title-main-size: (1: $font-h1, 2: $font-h2, 3: $font-h3, 4: $font-h4, 5: $font-h5, 6: $font-h6);
 
 
 //-----------------------------------the title of the font size on the home page
