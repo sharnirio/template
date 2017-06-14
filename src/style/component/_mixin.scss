@@ -75,7 +75,7 @@
     }
 }
 
-// @include centerer(true, true);
+// @include center(true, true);
 //mixin  reset-buton
 @mixin reset-btn() {
     border: none;
@@ -102,18 +102,6 @@
 }
 // p { @include fs(36px);}
 
-//mixin calculateRemLh
-@function calculateRemLh($sizeLh) {
-    $remSizeLh: $sizeLh / 16px;
-    @return $remSizeLh * 1rem;
-}
-
-@mixin lh($sizeLh) {
-    line-height: $sizeLh;
-    line-height: calculateRemLh($sizeLh);
-}
-
-// p { @include lh(36px);}
 
 //mixin calculate em --- px
 $browser-context: 16;
@@ -130,7 +118,7 @@ $browser-context: 16;
 //h1 { font-size: em(32); }
 
 //mixin size
-@mixin size($width, $height: $width) {
+@mixin siz($width, $height: $width) {
   width: $width;
   height: $height;
 }

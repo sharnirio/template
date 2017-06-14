@@ -97,6 +97,7 @@ $screen-c: 320px;
 }
 
 
+
 @extend .class;
 
 @extend %fblack;
@@ -141,25 +142,18 @@ $screen-c: 320px;
     // font-style: italic
 
 
-@include debug($background, $outline)
-    // height: 100vh;
-    // position: fixed;
-    // width: 100%;
-
-    // > div{
-    //     height: inherit;
-    //     @include wrapper();
-
-    //     > div{
-    //         height: inherit;
-    //         @include row-flex();
-
-    //         > div{
-    //             @include col();
-    //             @include col-1();
-    //             height: inherit;
-    //             outline: $outline;
-    //             background: $background;
-
+//new snipet
+//font mix
+fm
+//resp
+res
+//fon brand
+fb
+//color brand
+cb
+//@extend
+ex
+//@include
+in
 
 

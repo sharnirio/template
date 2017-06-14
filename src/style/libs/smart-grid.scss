@@ -54,6 +54,7 @@ $break_c: 320px;
     }
     img{
         max-width: 100%;
+        height: auto;
     }
 }
 
@@ -113,41 +114,45 @@ $break_c: 320px;
     padding-right: $offset_one_side;
     word-wrap: break-word;
 }
+@mixin size($n){
+    $value: $atom * $n;
+    width: #{calc(#{$value} - #{$offset})};
+}
 @mixin col-1(){
-    width: #{calc(8.333333333333334% - #{$offset})};
+    @include size(1);
 }
 @mixin col-2(){
-    width: #{calc(16.666666666666668% - #{$offset})};
+    @include size(2);
 }
 @mixin col-3(){
-    width: #{calc(25% - #{$offset})};
+    @include size(3);
 }
 @mixin col-4(){
-    width: #{calc(33.333333333333336% - #{$offset})};
+    @include size(4);
 }
 @mixin col-5(){
-    width: #{calc(41.66666666666667% - #{$offset})};
+    @include size(5);
 }
 @mixin col-6(){
-    width: #{calc(50% - #{$offset})};
+    @include size(6);
 }
 @mixin col-7(){
-    width: #{calc(58.333333333333336% - #{$offset})};
+    @include size(7);
 }
 @mixin col-8(){
-    width: #{calc(66.66666666666667% - #{$offset})};
+    @include size(8);
 }
 @mixin col-9(){
-    width: #{calc(75% - #{$offset})};
+    @include size(9);
 }
 @mixin col-10(){
-    width: #{calc(83.33333333333334% - #{$offset})};
+    @include size(10);
 }
 @mixin col-11(){
-    width: #{calc(91.66666666666667% - #{$offset})};
+    @include size(11);
 }
 @mixin col-12(){
-    width: #{calc(100% - #{$offset})};
+    @include size(12);
 }
 @mixin offset($n){
     $value: $atom * $n;
@@ -214,65 +219,47 @@ $break_c: 320px;
 @mixin float($value){
     float: $value;
 }
-@mixin col-lg-1(){
+@mixin size-lg($n){
     @media screen and (max-width: $break_lg){
-        width: #{calc(8.333333333333334% - #{$offset})};
+        $value: $atom * $n;
+        width: #{calc(#{$value} - #{$offset})};
     }
+}
+@mixin col-lg-1(){
+    @include size-lg(1);
 }
 @mixin col-lg-2(){
-    @media screen and (max-width: $break_lg){
-        width: #{calc(16.666666666666668% - #{$offset})};
-    }
+    @include size-lg(2);
 }
 @mixin col-lg-3(){
-    @media screen and (max-width: $break_lg){
-        width: #{calc(25% - #{$offset})};
-    }
+    @include size-lg(3);
 }
 @mixin col-lg-4(){
-    @media screen and (max-width: $break_lg){
-        width: #{calc(33.333333333333336% - #{$offset})};
-    }
+    @include size-lg(4);
 }
 @mixin col-lg-5(){
-    @media screen and (max-width: $break_lg){
-        width: #{calc(41.66666666666667% - #{$offset})};
-    }
+    @include size-lg(5);
 }
 @mixin col-lg-6(){
-    @media screen and (max-width: $break_lg){
-        width: #{calc(50% - #{$offset})};
-    }
+    @include size-lg(6);
 }
 @mixin col-lg-7(){
-    @media screen and (max-width: $break_lg){
-        width: #{calc(58.333333333333336% - #{$offset})};
-    }
+    @include size-lg(7);
 }
 @mixin col-lg-8(){
-    @media screen and (max-width: $break_lg){
-        width: #{calc(66.66666666666667% - #{$offset})};
-    }
+    @include size-lg(8);
 }
 @mixin col-lg-9(){
-    @media screen and (max-width: $break_lg){
-        width: #{calc(75% - #{$offset})};
-    }
+    @include size-lg(9);
 }
 @mixin col-lg-10(){
-    @media screen and (max-width: $break_lg){
-        width: #{calc(83.33333333333334% - #{$offset})};
-    }
+    @include size-lg(10);
 }
 @mixin col-lg-11(){
-    @media screen and (max-width: $break_lg){
-        width: #{calc(91.66666666666667% - #{$offset})};
-    }
+    @include size-lg(11);
 }
 @mixin col-lg-12(){
-    @media screen and (max-width: $break_lg){
-        width: #{calc(100% - #{$offset})};
-    }
+    @include size-lg(12);
 }
 @mixin offset-lg($n){
     @media screen and (max-width: $break_lg){
@@ -387,65 +374,47 @@ $break_c: 320px;
         @content;
     }
 }
-@mixin col-md-1(){
+@mixin size-md($n){
     @media screen and (max-width: $break_md){
-        width: #{calc(8.333333333333334% - #{$offset})};
+        $value: $atom * $n;
+        width: #{calc(#{$value} - #{$offset})};
     }
+}
+@mixin col-md-1(){
+    @include size-md(1);
 }
 @mixin col-md-2(){
-    @media screen and (max-width: $break_md){
-        width: #{calc(16.666666666666668% - #{$offset})};
-    }
+    @include size-md(2);
 }
 @mixin col-md-3(){
-    @media screen and (max-width: $break_md){
-        width: #{calc(25% - #{$offset})};
-    }
+    @include size-md(3);
 }
 @mixin col-md-4(){
-    @media screen and (max-width: $break_md){
-        width: #{calc(33.333333333333336% - #{$offset})};
-    }
+    @include size-md(4);
 }
 @mixin col-md-5(){
-    @media screen and (max-width: $break_md){
-        width: #{calc(41.66666666666667% - #{$offset})};
-    }
+    @include size-md(5);
 }
 @mixin col-md-6(){
-    @media screen and (max-width: $break_md){
-        width: #{calc(50% - #{$offset})};
-    }
+    @include size-md(6);
 }
 @mixin col-md-7(){
-    @media screen and (max-width: $break_md){
-        width: #{calc(58.333333333333336% - #{$offset})};
-    }
+    @include size-md(7);
 }
 @mixin col-md-8(){
-    @media screen and (max-width: $break_md){
-        width: #{calc(66.66666666666667% - #{$offset})};
-    }
+    @include size-md(8);
 }
 @mixin col-md-9(){
-    @media screen and (max-width: $break_md){
-        width: #{calc(75% - #{$offset})};
-    }
+    @include size-md(9);
 }
 @mixin col-md-10(){
-    @media screen and (max-width: $break_md){
-        width: #{calc(83.33333333333334% - #{$offset})};
-    }
+    @include size-md(10);
 }
 @mixin col-md-11(){
-    @media screen and (max-width: $break_md){
-        width: #{calc(91.66666666666667% - #{$offset})};
-    }
+    @include size-md(11);
 }
 @mixin col-md-12(){
-    @media screen and (max-width: $break_md){
-        width: #{calc(100% - #{$offset})};
-    }
+    @include size-md(12);
 }
 @mixin offset-md($n){
     @media screen and (max-width: $break_md){
@@ -560,65 +529,47 @@ $break_c: 320px;
         @content;
     }
 }
-@mixin col-sm-1(){
+@mixin size-sm($n){
     @media screen and (max-width: $break_sm){
-        width: #{calc(8.333333333333334% - #{$offset})};
+        $value: $atom * $n;
+        width: #{calc(#{$value} - #{$offset})};
     }
+}
+@mixin col-sm-1(){
+    @include size-sm(1);
 }
 @mixin col-sm-2(){
-    @media screen and (max-width: $break_sm){
-        width: #{calc(16.666666666666668% - #{$offset})};
-    }
+    @include size-sm(2);
 }
 @mixin col-sm-3(){
-    @media screen and (max-width: $break_sm){
-        width: #{calc(25% - #{$offset})};
-    }
+    @include size-sm(3);
 }
 @mixin col-sm-4(){
-    @media screen and (max-width: $break_sm){
-        width: #{calc(33.333333333333336% - #{$offset})};
-    }
+    @include size-sm(4);
 }
 @mixin col-sm-5(){
-    @media screen and (max-width: $break_sm){
-        width: #{calc(41.66666666666667% - #{$offset})};
-    }
+    @include size-sm(5);
 }
 @mixin col-sm-6(){
-    @media screen and (max-width: $break_sm){
-        width: #{calc(50% - #{$offset})};
-    }
+    @include size-sm(6);
 }
 @mixin col-sm-7(){
-    @media screen and (max-width: $break_sm){
-        width: #{calc(58.333333333333336% - #{$offset})};
-    }
+    @include size-sm(7);
 }
 @mixin col-sm-8(){
-    @media screen and (max-width: $break_sm){
-        width: #{calc(66.66666666666667% - #{$offset})};
-    }
+    @include size-sm(8);
 }
 @mixin col-sm-9(){
-    @media screen and (max-width: $break_sm){
-        width: #{calc(75% - #{$offset})};
-    }
+    @include size-sm(9);
 }
 @mixin col-sm-10(){
-    @media screen and (max-width: $break_sm){
-        width: #{calc(83.33333333333334% - #{$offset})};
-    }
+    @include size-sm(10);
 }
 @mixin col-sm-11(){
-    @media screen and (max-width: $break_sm){
-        width: #{calc(91.66666666666667% - #{$offset})};
-    }
+    @include size-sm(11);
 }
 @mixin col-sm-12(){
-    @media screen and (max-width: $break_sm){
-        width: #{calc(100% - #{$offset})};
-    }
+    @include size-sm(12);
 }
 @mixin offset-sm($n){
     @media screen and (max-width: $break_sm){
@@ -733,65 +684,47 @@ $break_c: 320px;
         @content;
     }
 }
-@mixin col-xs-1(){
+@mixin size-xs($n){
     @media screen and (max-width: $break_xs){
-        width: #{calc(8.333333333333334% - #{$offset})};
+        $value: $atom * $n;
+        width: #{calc(#{$value} - #{$offset})};
     }
+}
+@mixin col-xs-1(){
+    @include size-xs(1);
 }
 @mixin col-xs-2(){
-    @media screen and (max-width: $break_xs){
-        width: #{calc(16.666666666666668% - #{$offset})};
-    }
+    @include size-xs(2);
 }
 @mixin col-xs-3(){
-    @media screen and (max-width: $break_xs){
-        width: #{calc(25% - #{$offset})};
-    }
+    @include size-xs(3);
 }
 @mixin col-xs-4(){
-    @media screen and (max-width: $break_xs){
-        width: #{calc(33.333333333333336% - #{$offset})};
-    }
+    @include size-xs(4);
 }
 @mixin col-xs-5(){
-    @media screen and (max-width: $break_xs){
-        width: #{calc(41.66666666666667% - #{$offset})};
-    }
+    @include size-xs(5);
 }
 @mixin col-xs-6(){
-    @media screen and (max-width: $break_xs){
-        width: #{calc(50% - #{$offset})};
-    }
+    @include size-xs(6);
 }
 @mixin col-xs-7(){
-    @media screen and (max-width: $break_xs){
-        width: #{calc(58.333333333333336% - #{$offset})};
-    }
+    @include size-xs(7);
 }
 @mixin col-xs-8(){
-    @media screen and (max-width: $break_xs){
-        width: #{calc(66.66666666666667% - #{$offset})};
-    }
+    @include size-xs(8);
 }
 @mixin col-xs-9(){
-    @media screen and (max-width: $break_xs){
-        width: #{calc(75% - #{$offset})};
-    }
+    @include size-xs(9);
 }
 @mixin col-xs-10(){
-    @media screen and (max-width: $break_xs){
-        width: #{calc(83.33333333333334% - #{$offset})};
-    }
+    @include size-xs(10);
 }
 @mixin col-xs-11(){
-    @media screen and (max-width: $break_xs){
-        width: #{calc(91.66666666666667% - #{$offset})};
-    }
+    @include size-xs(11);
 }
 @mixin col-xs-12(){
-    @media screen and (max-width: $break_xs){
-        width: #{calc(100% - #{$offset})};
-    }
+    @include size-xs(12);
 }
 @mixin offset-xs($n){
     @media screen and (max-width: $break_xs){
@@ -906,65 +839,47 @@ $break_c: 320px;
         @content;
     }
 }
-@mixin col-c-1(){
+@mixin size-c($n){
     @media screen and (max-width: $break_c){
-        width: #{calc(8.333333333333334% - #{$offset})};
+        $value: $atom * $n;
+        width: #{calc(#{$value} - #{$offset})};
     }
+}
+@mixin col-c-1(){
+    @include size-c(1);
 }
 @mixin col-c-2(){
-    @media screen and (max-width: $break_c){
-        width: #{calc(16.666666666666668% - #{$offset})};
-    }
+    @include size-c(2);
 }
 @mixin col-c-3(){
-    @media screen and (max-width: $break_c){
-        width: #{calc(25% - #{$offset})};
-    }
+    @include size-c(3);
 }
 @mixin col-c-4(){
-    @media screen and (max-width: $break_c){
-        width: #{calc(33.333333333333336% - #{$offset})};
-    }
+    @include size-c(4);
 }
 @mixin col-c-5(){
-    @media screen and (max-width: $break_c){
-        width: #{calc(41.66666666666667% - #{$offset})};
-    }
+    @include size-c(5);
 }
 @mixin col-c-6(){
-    @media screen and (max-width: $break_c){
-        width: #{calc(50% - #{$offset})};
-    }
+    @include size-c(6);
 }
 @mixin col-c-7(){
-    @media screen and (max-width: $break_c){
-        width: #{calc(58.333333333333336% - #{$offset})};
-    }
+    @include size-c(7);
 }
 @mixin col-c-8(){
-    @media screen and (max-width: $break_c){
-        width: #{calc(66.66666666666667% - #{$offset})};
-    }
+    @include size-c(8);
 }
 @mixin col-c-9(){
-    @media screen and (max-width: $break_c){
-        width: #{calc(75% - #{$offset})};
-    }
+    @include size-c(9);
 }
 @mixin col-c-10(){
-    @media screen and (max-width: $break_c){
-        width: #{calc(83.33333333333334% - #{$offset})};
-    }
+    @include size-c(10);
 }
 @mixin col-c-11(){
-    @media screen and (max-width: $break_c){
-        width: #{calc(91.66666666666667% - #{$offset})};
-    }
+    @include size-c(11);
 }
 @mixin col-c-12(){
-    @media screen and (max-width: $break_c){
-        width: #{calc(100% - #{$offset})};
-    }
+    @include size-c(12);
 }
 @mixin offset-c($n){
     @media screen and (max-width: $break_c){
@@ -1094,7 +1009,7 @@ $break_c: 320px;
             
             > div{
                 @include col();
-                @include col-1();
+                @include size(1);
                 height: inherit;
                 outline: $outline;
                 background: $background;
