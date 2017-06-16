@@ -96,51 +96,22 @@ $screen-c: 320px;
 
 }
 
+@include respond-to(handhelds) {
 
+        }
 
-@extend .class;
-
-@extend %fblack;
-// font-weight: 900
-//font-style: normal
-
-@extend %fblackit;
-    // font-weight: 900
-    // font-style: italic
-
-@extend %fbold;
+@extend %Bold;
     // font-weight: 700
     // font-style: normal
 
-@extend %fboldit;
-    // font-weight: 700
-    // font-style: italic
 
-@extend %fmedium;
-    // font-weight: 500
-    // font-style: normal
-
-@extend %fmediumit;
-    // font-weight: 500
-    // font-style: italic
-
-
-@extend %fregular;
+@extend %Regular;
     // font-weight: 400
     // font-style: normal
 
-@extend %fitalic;
+@extend %Italic;
     // font-weight: 400
     // font-style: italic
-
-@extend %flight;
-    // font-weight: 300
-    // font-style: normal
-
-@extend %flightit;
-    // font-weight: 300
-    // font-style: italic
-
 
 //new snipet
 //font mix
