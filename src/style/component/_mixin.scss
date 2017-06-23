@@ -123,3 +123,51 @@ $browser-context: 16;
   height: $height;
 }
 // p { @include size(36px);}
+
+//Отзывчивое соотношение
+@mixin responsive-ratio($x,$y, $pseudo: false) {
+  $padding: unquote( ( $y / $x ) * 100 + '%' );
+  @if $pseudo {
+   &:before {
+    @include pseudo($pos: relative);
+    width: 100%;
+    padding-top: $padding;
+   }
+  } @else {
+   padding-top: $padding;
+  }
+}
+//div {@include responsive-ratio(16,9);}
+
+//placeholder mix
+@mixin input-placeholder {
+  &.placeholder { @content; }
+  &:-moz-placeholder { @content; }
+  &::-moz-placeholder { @content; }
+  &:-ms-input-placeholder { @content; }
+  &::-webkit-input-placeholder { @content; }
+}
+//input,textarea {
+//  @include input-placeholder {color: $grey;}}
+
+// z-index mixin
+@function z($name) {
+  @if index($z-indexes, $name) {
+   @return (length($z-indexes) - index($z-indexes, $name)) + 1;
+  } @else {
+   @warn 'There is no item "#{$name}" in this list; choose one of: #{$z-indexes}';
+   @return null;
+  }
+};
+$z-indexes: (
+  "outdated-browser",
+  "modal",
+  "site-header",
+  "page-wrapper",
+  "site-footer"
+);
+.site-header {
+
+  z-index: z('site-header');
+
+}
