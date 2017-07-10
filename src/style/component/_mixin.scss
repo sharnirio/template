@@ -139,16 +139,38 @@ $browser-context: 16;
 }
 //div {@include responsive-ratio(16,9);}
 
-//placeholder mix
-@mixin input-placeholder {
-  &.placeholder { @content; }
-  &:-moz-placeholder { @content; }
-  &::-moz-placeholder { @content; }
-  &:-ms-input-placeholder { @content; }
-  &::-webkit-input-placeholder { @content; }
+@mixin optional-at-root($sel) {
+  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+    @content;
+  }
 }
-//input,textarea {
-//  @include input-placeholder {color: $grey;}}
+
+@mixin placeholder {
+  @include optional-at-root('::-webkit-input-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root('::-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-ms-input-placeholder') {
+    @content;
+  }
+}
+// .foo {
+//   @include placeholder {
+//     color: green;
+//   }
+// }
+
+// @include placeholder {
+//   color: red;
+// }
 
 // z-index mixin
 @function z($name) {
@@ -166,8 +188,15 @@ $z-indexes: (
   "page-wrapper",
   "site-footer"
 );
-.site-header {
+// .site-header {
+//   z-index: z('site-header');
+// }
 
-  z-index: z('site-header');
-
+//mix px to %
+@mixin w($width-block, $width-container) {
+  width: $width-block / $width-container * 100%;
 }
+
+// body {
+//     @include w(100px, 1000px);
+// }
